@@ -1,13 +1,9 @@
 package com.ectrip.utils;
 
-import org.springframework.context.ApplicationContext;
 /**
- * 项目名称：
- * @author:fh qq313596790[青苔]
- * 修改日期：2015/11/2
-*/
+ * Created by huangxinguang on 2017/4/19 下午4:48.
+ * </p>
+ * Desc:
+ */
 public class Const {
-
-	
-	
 }
