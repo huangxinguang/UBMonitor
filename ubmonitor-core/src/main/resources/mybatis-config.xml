@@ -16,7 +16,6 @@
 		<typeAlias type="com.ectrip.entity.system.Dictionaries" alias="Dictionaries"/>
 		<typeAlias type="com.ectrip.entity.system.Department" alias="Department"/>-->
 		<typeAlias type="com.ectrip.utils.PageData" alias="pd"/>
-		<!-- 鍒嗛〉 -->
 		<typeAlias type="com.ectrip.utils.Page" alias="Page"/>
 	</typeAliases>
 	
