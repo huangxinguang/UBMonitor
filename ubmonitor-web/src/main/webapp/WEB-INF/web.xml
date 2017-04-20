@@ -43,7 +43,7 @@
   <!--配置spring启动文件-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:spring/ApplicationContext.xml</param-value>
+    <param-value>classpath*:spring/ApplicationContext*.xml</param-value>
   </context-param>
 
   <!--spring容器启动-->

@@ -2,7 +2,12 @@ package com.ectrip.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by huangxinguang on 2017/4/19 下午4:14.
@@ -16,4 +21,14 @@ public abstract class BaseController {
     public ModelAndView getModelAndView() {
         return new ModelAndView();
     }
+
+    public HttpServletRequest getRequest() {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        return request;
+    }
+
+    public HttpSession getSession() {
+        return getRequest().getSession();
+    }
+
 }
