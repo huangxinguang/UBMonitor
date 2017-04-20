@@ -37,4 +37,10 @@ public class OptRecordController extends BaseController {
         return  mav;
     }
 
+    @RequestMapping(value = "/findOptRecordInfo")
+    public String findOptRecordInfo(OptRecord optRecord){
+        optManageService.findOptRecordInfo(optRecord);
+        return "OptRecordList";
+    }
+
 }

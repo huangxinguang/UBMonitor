@@ -18,6 +18,32 @@
 		<result column="OPT_TIME" property="optTime"/>
 		<result column="OPT_DESCRIPTION" property="optDescription"/>
 		<result column="ENV_ID" property="envId"/>
+		<association property="optEnvironment" javaType="com.ectrip.model.OptEnvironment">
+			<id column="ID" property="id"/>
+			<result column="IP" property="ip"/>
+			<result column="CLIENT_IP" property="clientIp"/>
+			<result column="MAC" property="mac"/>
+			<result column="IMEI" property="imei"/>
+			<result column="OPERATORS" property="operators"/>
+			<result column="MANUFACTURER" property="manufacturer"/>
+			<result column="PHONE_MODEL" property="phoneModel"/>
+			<result column="COMPUTER_NAME" property="computerName"/>
+			<result column="OS" property="os"/>
+			<result column="OS_VERSION" property="osVersion"/>
+			<result column="RESOLUTION" property="resolution"/>
+			<result column="FONT" property="font"/>
+			<result column="FONT_SIZE" property="fontSize"/>
+			<result column="BROWSER" property="browser"/>
+			<result column="BROWSER_VERSION" property="browserVersion"/>
+			<result column="APP_NAME" property="appName"/>
+			<result column="APP_TYPE" property="appType"/>
+			<result column="APP_VERSION" property="appVersion"/>
+			<result column="LONGITUDE" property="longitude"/>
+			<result column="LATITUDE" property="latitude"/>
+			<result column="INTERNET_TYPE" property="internetType"/>
+			<result column="IS_EMULATOR" property="isEmulator"/>
+			<result column="DEVICE_ID" property="deviceId"/>
+		</association>
 	</resultMap>
 
 	<!--表名 -->
@@ -62,6 +88,32 @@
 		#{optDescription},
 		#{envId}
 	</sql>
+
+	<!-- 按条件查询-->
+	<select id="findOptRecordInfo" resultMap="baseResultMap" parameterType="OptRecord">
+		SELECT * FROM OPT_RECORD optr,OPT_ENVIRONMENT opte WHERE optr.ENV_ID=opte.ID
+		<if test="#{userId}!=null">
+			AND USER_ID=#{userId}
+		</if>
+		<if test="#{sysCode}!=null">
+			AND SYS_CODE=#{sysCode}
+		</if>
+		<if test="#{channelCode}!=null">
+			AND CHANNEL_CODE=#{channelCode}
+		</if>
+		<if test="#{terminalName}!=null">
+			AND CHANNEL_CODE=#{terminalName}
+		</if>
+		<if test="#{sessionId}!=null">
+			AND CHANNEL_CODE=#{sessionId}
+		</if>
+		<if test="#{reqUrl}!=null">
+			AND CHANNEL_CODE=#{reqUrl}
+		</if>
+		<if test="#{sceneNo}!=null">
+			AND CHANNEL_CODE=#{sceneNo}
+		</if>
+	</select>
 
 	<!-- 新增-->
 	<insert id="save" parameterType="OptRecord">

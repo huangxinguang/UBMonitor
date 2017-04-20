@@ -22,6 +22,8 @@ public class OptRecord {
     private String optDescription;  //操作详情
     private Integer envId;          //操作环境编号
 
+    private OptEnvironment optEnvironment;//用户操作环境对象
+
     public Integer getId() {
         return id;
     }
@@ -140,5 +142,13 @@ public class OptRecord {
 
     public void setEnvId(Integer envId) {
         this.envId = envId;
+    }
+
+    public OptEnvironment getOptEnvironment() {
+        return optEnvironment;
+    }
+
+    public void setOptEnvironment(OptEnvironment optEnvironment) {
+        this.optEnvironment = optEnvironment;
     }
 }

@@ -26,4 +26,13 @@ public class OptManageServiceImpl implements OptManageService {
         UserAgentInfo userAgentInfo = UserAgentUtil.parse(userAgent);
 
     }
+
+    /**
+     * 根据指定条件查询用户操作记录以及操作时的用户环境
+     * @param optRecord
+     */
+    public OptRecord findOptRecordInfo(OptRecord optRecord){
+        return optRecordDAO.findOptRecordInfo(optRecord);
+    }
+
 }
