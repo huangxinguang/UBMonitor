@@ -3,7 +3,7 @@
 <mapper namespace="com.ectrip.dao.OptRecordDAO">
 
 	<resultMap type="OptRecord" id="baseResultMap">
-		<id column="ID" property="MENU_ID"/>
+		<id column="ID" property="id"/>
 		<result column="SYS_CODE" property="sysCode"/>
 		<result column="CHANNEL_CODE" property="channelCode"/>
 		<result column="CHANNEL_NAME" property="channelName"/>
@@ -46,7 +46,7 @@
 
 	<!-- 字段值 -->
 	<sql id="FieldValue">
-		#{MENU_ID},
+		#{id},
 		#{sysCode},
 		#{channelCode},
 		#{channelName},
@@ -64,7 +64,7 @@
 	</sql>
 
 	<!-- 新增-->
-	<insert id="save" parameterType="optRecord">
+	<insert id="save" parameterType="OptRecord">
 		insert into <include refid="tableName"></include>(
 			<include refid="Field"></include>
 		) values (
