@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ectrip.dao.OptRecordDAO">
+
+	<resultMap type="OptRecord" id="baseResultMap">
+		<id column="ID" property="MENU_ID"/>
+		<result column="SYS_CODE" property="sysCode"/>
+		<result column="CHANNEL_CODE" property="channelCode"/>
+		<result column="CHANNEL_NAME" property="channelName"/>
+		<result column="TERMINAL_NAME" property="terminaleName"/>
+		<result column="SESSION_ID" property="sessionId"/>
+		<result column="REQ_PARAMS" property="reqParams"/>
+		<result column="REQ_URL" property="reqUrl"/>
+		<result column="USER_ID" property="userId"/>
+		<result column="SCENE_NO" property="sceneNo"/>
+		<result column="REQ_METHOD_NAME" property="reqMethodName"/>
+		<result column="OPT_BRIEF" property="optBrief"/>
+		<result column="OPT_TIME" property="optTime"/>
+		<result column="OPT_DESCRIPTION" property="optDescription"/>
+		<result column="ENV_ID" property="envId"/>
+	</resultMap>
+
+	<!--表名 -->
+	<sql id="tableName">
+		OPT_RECORD
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		ID,
+		SYS_CODE,
+		CHANNEL_CODE,
+		CHANNEL_NAME,
+		TERMINAL_NAME,
+		SESSION_ID,
+		REQ_PARAMS,
+		REQ_URL,
+		USER_ID,
+		SCENE_NO,
+		REQ_METHOD_NAME,
+		OPT_BRIEF,
+		OPT_TIME,
+		OPT_DESCRIPTION,
+		ENV_ID
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{ID},
+		#{SYS_CODE},
+		#{CHANNEL_CODE},
+		#{CHANNEL_NAME},
+		#{TERMINAL_NAME},
+		#{SESSION_ID},
+		#{REQ_PARAMS},
+		#{REQ_URL}
+		#{USER_ID}
+		#{SCENE_NO}
+		#{REQ_METHOD_NAME}
+		#{OPT_BRIEF}
+		#{OPT_TIME}
+		#{OPT_DESCRIPTION}
+		#{ENV_ID}
+	</sql>
+
+	<!-- 新增-->
+	<insert id="save" parameterType="optRecord">
+		insert into <include refid="tableName"></include>(
+			<include refid="Field"></include>
+		) values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+</mapper>

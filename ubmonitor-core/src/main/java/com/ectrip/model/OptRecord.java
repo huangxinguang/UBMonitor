@@ -1,4 +1,4 @@
-package com.ectrip.mode;
+package com.ectrip.model;
 
 /**
  * Created by huangxinguang on 2017/4/19 下午3:32.
