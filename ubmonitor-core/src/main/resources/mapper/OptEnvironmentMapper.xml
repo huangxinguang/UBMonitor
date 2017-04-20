@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ectrip.dao.OptRecordDAO">
+
+	<resultMap type="OptRecord" id="baseResultMap">
+		<id column="ID" property="id"/>
+		<result column="IP" property="ip"/>
+		<result column="CLIENT_IP" property="clientIp"/>
+		<result column="MAC" property="mac"/>
+		<result column="IMEI" property="imei"/>
+		<result column="OPERATORS" property="operators"/>
+		<result column="MANUFACTURER" property="manufacturer"/>
+		<result column="PHONE_MODEL" property="phoneModel"/>
+		<result column="COMPUTER_NAME" property="computerName"/>
+		<result column="OS" property="os"/>
+		<result column="OS_VERSION" property="osVersion"/>
+		<result column="RESOLUTION" property="resolution"/>
+		<result column="FONT" property="font"/>
+		<result column="FONT_SIZE" property="fontSize"/>
+		<result column="BROWSER" property="browser"/>
+		<result column="BROWSER_VERSION" property="browserVersion"/>
+		<result column="APP_NAME" property="appName"/>
+		<result column="APP_TYPE" property="appType"/>
+		<result column="APP_VERSION" property="appVersion"/>
+		<result column="LONGITUDE" property="longitude"/>
+		<result column="LATITUDE" property="latitude"/>
+		<result column="INTERNET_TYPE" property="internetType"/>
+		<result column="IS_EMULATOR" property="isEmulator"/>
+		<result column="DEVICE_ID" property="deviceId"/>
+	</resultMap>
+
+	<!--表名 -->
+	<sql id="tableName">
+		OPT_ENVIRONMENT
+	</sql>
+
+	<!-- 字段 -->
+	<sql id="Field">
+		ID,
+		IP,
+		CLIENT_IP,
+		MAC,
+		IMEI,
+		OPERATORS,
+		MANUFACTURER,
+		PHONE_MODEL,
+		COMPUTER_NAME,
+		OS,
+		OS_VERSION,
+		RESOLUTION,
+		FONT,
+		FONT_SIZE,
+		BROWSER,
+		BROWSER_VERSION,
+		APP_NAME,
+		APP_TYPE,
+		APP_VERSION,
+		LONGITUDE,
+		LATITUDE,
+		INTERNET_TYPE,
+		IS_EMULATOR,
+		DEVICE_ID
+	</sql>
+
+	<!-- 字段值 -->
+	<sql id="FieldValue">
+		#{id},
+		#{ip},
+		#{clientIp},
+		#{mac},
+		#{imei},
+		#{operators},
+		#{manufacturer},
+		#{phoneModel},
+		#{computerName},
+		#{os},
+		#{osVersion},
+		#{resolution},
+		#{font},
+		#{fontSize},
+		#{browser},
+		#{browserVersion},
+		#{appName},
+		#{appType},
+		#{appVersion},
+		#{longitude},
+		#{latitude},
+		#{internetType},
+		#{isEmulator},
+		#{deviceId}
+	</sql>
+
+	<!-- 新增-->
+	<insert id="save" parameterType="optRecord">
+		insert into <include refid="tableName"></include>(
+			<include refid="Field"></include>
+		) values (
+			<include refid="FieldValue"></include>
+		)
+	</insert>
+</mapper>
