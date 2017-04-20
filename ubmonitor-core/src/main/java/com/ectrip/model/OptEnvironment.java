@@ -3,33 +3,33 @@ package com.ectrip.model;
 /**
  * Created by huangxinguang on 2017/4/20 上午9:14.
  * </p>
- * Desc:
+ * Desc:用户环境信息实体类
  */
 public class OptEnvironment {
-    private Integer id;
-    private String ip;
-    private String clientIp;
-    private String mac;
-    private String imei;
-    private String operators;
-    private String manufacturer;
-    private String phoneModel;
-    private String computerName;
-    private String os;
-    private String osVersion;
-    private String resolution;
-    private String font;
-    private String fontSize;
-    private String browser;
-    private String browserVersion;
-    private String appName;
-    private String appType;
-    private String appVersion;
-    private String longitude;
-    private String latitude;
-    private String internetType;
-    private String isEmulator;
-    private String deviceId;
+    private Integer id;             //自增主键
+    private String ip;              //用户IP
+    private String clientIp;        //客户端ip
+    private String mac;             //mac地址
+    private String imei;            //
+    private String operators;       //操作用户
+    private String manufacturer;    //运营商
+    private String phoneModel;      //手机型号
+    private String computerName;    //电脑名称
+    private String os;              //操作系统
+    private String osVersion;       //操作系统版本
+    private String resolution;      //布局
+    private String font;            //字体
+    private String fontSize;        //字体大小
+    private String browser;         //浏览器
+    private String browserVersion;  //浏览器版本
+    private String appName;         //APP名称
+    private String appType;         //APP类型
+    private String appVersion;      //APP版本
+    private String longitude;       //经度
+    private String latitude;        //纬度
+    private String internetType;    //网络类型
+    private String isEmulator;      //是否虚拟机
+    private String deviceId;        //设备ID
 
     public Integer getId() {
         return id;

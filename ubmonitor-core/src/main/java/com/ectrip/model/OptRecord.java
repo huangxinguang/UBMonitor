@@ -3,24 +3,24 @@ package com.ectrip.model;
 /**
  * Created by huangxinguang on 2017/4/19 下午3:32.
  * </p>
- * Desc:
+ * Desc:用户行为操作记录实体类
  */
 public class OptRecord {
-    private Integer id;
-    private String sysCode;
-    private String channelCode;
-    private String channelName;
-    private String terminalName;
-    private String sessionId;
-    private String reqParams;
-    private String reqUrl;
-    private String userId;
-    private String sceneNo;
-    private String reqMethodName;
-    private String optBrief;
-    private String optTime;
-    private String optDescription;
-    private Integer envId;
+    private Integer id;             //自增主键
+    private String sysCode;         //系统编号
+    private String channelCode;     //渠道编号
+    private String channelName;     //渠道名称
+    private String terminalName;    //终端
+    private String sessionId;       //会话ID
+    private String reqParams;       //请求参数
+    private String reqUrl;          //请求路径
+    private String userId;          //用户编号
+    private String sceneNo;         //场景号
+    private String reqMethodName;   //请求路径中文名称
+    private String optBrief;        //操作简介
+    private String optTime;         //操作时间
+    private String optDescription;  //操作详情
+    private Integer envId;          //操作环境编号
 
     public Integer getId() {
         return id;

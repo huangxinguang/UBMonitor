@@ -46,21 +46,21 @@
 
 	<!-- 字段值 -->
 	<sql id="FieldValue">
-		#{ID},
-		#{SYS_CODE},
-		#{CHANNEL_CODE},
-		#{CHANNEL_NAME},
-		#{TERMINAL_NAME},
-		#{SESSION_ID},
-		#{REQ_PARAMS},
-		#{REQ_URL}
-		#{USER_ID}
-		#{SCENE_NO}
-		#{REQ_METHOD_NAME}
-		#{OPT_BRIEF}
-		#{OPT_TIME}
-		#{OPT_DESCRIPTION}
-		#{ENV_ID}
+		#{MENU_ID},
+		#{sysCode},
+		#{channelCode},
+		#{channelName},
+		#{terminaleName},
+		#{sessionId},
+		#{reqParams},
+		#{reqUrl}
+		#{userId}
+		#{sceneNo}
+		#{reqMethodName}
+		#{optBrief}
+		#{optTime}
+		#{optDescription}
+		#{envId}
 	</sql>
 
 	<!-- 新增-->
