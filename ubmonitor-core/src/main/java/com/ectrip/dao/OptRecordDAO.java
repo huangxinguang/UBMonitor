@@ -13,5 +13,5 @@ public interface OptRecordDAO {
      * @param optRecord
      */
     OptRecord findOptRecordInfo(OptRecord optRecord);
-    void save(OptRecord optRecord);
+    public void save(OptRecord optRecord);
 }

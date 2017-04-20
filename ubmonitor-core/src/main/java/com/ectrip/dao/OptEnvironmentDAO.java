@@ -9,6 +9,8 @@ import java.util.List;
  *
  */
 public interface OptEnvironmentDAO {
-    public List<OptEnvironment> getOptRecordInfo();
+
+    List<OptEnvironment> getOptRecordInfo();
+
     void save(OptEnvironment optEnvironment);
 }

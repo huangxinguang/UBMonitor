@@ -41,23 +41,19 @@ public class OptManageServiceImpl implements OptManageService {
                     String operators = request.getRemoteUser();
                     String url = request.getRequestURL().toString();
                     String ip = request.getRemoteAddr();
-                    String mac = NetUtil.getMACAddress(ip);
-                    optRecord.setReqUrl(url);
-                    optRecord.setSessionId(sessionId);
+                    //String mac = NetUtil.getMACAddress(ip);
 
+                    //解析user-agent
                     String userAgent = request.getHeader("User-Agent");
-
-
                     UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
-                    Browser browser = userAgentInfo.getBrowser();
-                    Version version = userAgentInfo.getBrowserVersion();
+                    Browser browser = userAgentInfo.getBrowser();//拿到浏览器信息
+                    Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
+                    OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
 
-                    OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();
-
-
+                    //组装envionment
                     OptEnvironment env = new OptEnvironment();
                     env.setIp(ip);
-                    env.setMac(mac);
+                    //env.setMac(mac);
                     env.setComputerName(operatingSystem.getDeviceType().getName());
                     env.setOperators(operators);
                     env.setBrowser(browser.getName());
@@ -70,7 +66,9 @@ public class OptManageServiceImpl implements OptManageService {
 
                     optEnvironmentDAO.save(env);
 
-
+                    //组装用户操作
+                    optRecord.setReqUrl(url);
+                    optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
                     optRecordDAO.save(optRecord);
 

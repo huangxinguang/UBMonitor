@@ -7,7 +7,7 @@
 		<result column="SYS_CODE" property="sysCode"/>
 		<result column="CHANNEL_CODE" property="channelCode"/>
 		<result column="CHANNEL_NAME" property="channelName"/>
-		<result column="TERMINAL_NAME" property="terminaleName"/>
+		<result column="TERMINAL_NAME" property="terminalName"/>
 		<result column="SESSION_ID" property="sessionId"/>
 		<result column="REQ_PARAMS" property="reqParams"/>
 		<result column="REQ_URL" property="reqUrl"/>
@@ -76,7 +76,7 @@
 		#{sysCode},
 		#{channelCode},
 		#{channelName},
-		#{terminaleName},
+		#{terminalName},
 		#{sessionId},
 		#{reqParams},
 		#{reqUrl},

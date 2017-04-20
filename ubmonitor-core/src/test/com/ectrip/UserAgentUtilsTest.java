@@ -1,9 +1,7 @@
-package com.ectip;
+package com.ectrip;
 
 import nl.bitwalker.useragentutils.UserAgent;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
