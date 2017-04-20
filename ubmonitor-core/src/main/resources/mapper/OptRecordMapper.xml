@@ -53,13 +53,13 @@
 		#{terminaleName},
 		#{sessionId},
 		#{reqParams},
-		#{reqUrl}
-		#{userId}
-		#{sceneNo}
-		#{reqMethodName}
-		#{optBrief}
-		#{optTime}
-		#{optDescription}
+		#{reqUrl},
+		#{userId},
+		#{sceneNo},
+		#{reqMethodName},
+		#{optBrief},
+		#{optTime},
+		#{optDescription},
 		#{envId}
 	</sql>
 

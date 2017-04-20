@@ -1,5 +1,7 @@
 package com.ectrip.model;
 
+import java.util.List;
+
 /**
  * Created by huangxinguang on 2017/4/20 上午9:14.
  * </p>
@@ -30,6 +32,8 @@ public class OptEnvironment {
     private String internetType;    //网络类型
     private String isEmulator;      //是否虚拟机
     private String deviceId;        //设备ID
+
+    private List<OptRecord> optRecordList;//用户行为操作记录列表
 
     public Integer getId() {
         return id;
@@ -221,5 +225,13 @@ public class OptEnvironment {
 
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
+    }
+
+    public List<OptRecord> getOptRecordList() {
+        return optRecordList;
+    }
+
+    public void setOptRecordList(List<OptRecord> optRecordList) {
+        this.optRecordList = optRecordList;
     }
 }

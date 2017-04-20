@@ -91,7 +91,7 @@
 	</sql>
 
 	<!-- 新增-->
-	<insert id="save" parameterType="optRecord">
+	<insert id="save" parameterType="optEnvironment">
 		insert into <include refid="tableName"></include>(
 			<include refid="Field"></include>
 		) values (
