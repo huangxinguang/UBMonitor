@@ -1,12 +1,13 @@
 package com.ectrip.utils;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 分页类
- * @author FH QQ 313596790[青苔]
- * 创建时间：2014年6月28日
  */
-public class Page {
+public class Page<E> {
 	
 	private int showCount; //每页显示记录数
 	private int totalPage;		//总页数
@@ -16,11 +17,20 @@ public class Page {
 	private boolean entityOrField;	//true:需要分页的地方，传入的参数就是Page实体；false:需要分页的地方，传入的参数所代表的实体拥有Page属性
 	private String pageStr;		//最终页面显示的底部翻页导航，详细见：getPageStr();
 	private PageData pd = new PageData();
-	
-
+	private List<E> dataList = new ArrayList<E>();
 	
 	public Page(){
 		this.showCount = 15;
+	}
+
+	public Page(int currentPage) {
+		this.currentPage = currentPage;
+		this.showCount = 15;
+	}
+
+	public Page(int currentPage,int showCount) {
+		this.currentPage = currentPage;
+		this.showCount = showCount;
 	}
 	
 	public int getTotalPage() {
@@ -30,7 +40,15 @@ public class Page {
 			totalPage = totalResult/showCount+1;
 		return totalPage;
 	}
-	
+
+	public List<E> getDataList() {
+		return dataList;
+	}
+
+	public void setDataList(List<E> dataList) {
+		this.dataList = dataList;
+	}
+
 	public void setTotalPage(int totalPage) {
 		this.totalPage = totalPage;
 	}
@@ -213,5 +231,6 @@ public class Page {
 	public void setPd(PageData pd) {
 		this.pd = pd;
 	}
+
 	
 }

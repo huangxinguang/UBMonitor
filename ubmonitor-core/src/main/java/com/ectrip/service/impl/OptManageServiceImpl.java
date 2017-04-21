@@ -1,22 +1,24 @@
 package com.ectrip.service.impl;
 
 import com.ectrip.dao.OptEnvironmentDAO;
+import com.ectrip.dao.OptRecordAndEnvDAO;
 import com.ectrip.dao.OptRecordDAO;
 import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
 import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.utils.NetUtil;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+import com.ectrip.utils.Page;
+import com.ectrip.vo.OptRecordAndEnvVO;
 import eu.bitwalker.useragentutils.*;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
-
-import static eu.bitwalker.useragentutils.UserAgent.*;
+import java.util.List;
 
 /**
  * Created by huangxinguang on 2017/4/20 下午2:24.
@@ -30,6 +32,9 @@ public class OptManageServiceImpl implements OptManageService {
     private OptEnvironmentDAO optEnvironmentDAO;
 
     @Autowired
+    private OptRecordAndEnvDAO optRecordAndEnvDAO;
+
+    @Autowired
     private OptRecordDAO optRecordDAO;
 
     @Autowired
@@ -38,7 +43,6 @@ public class OptManageServiceImpl implements OptManageService {
 
     public void saveOptAndEnv(final HttpServletRequest request, final OptRecord optRecord) {
         threadPoolTaskExecutor.execute(new Runnable() {
-            @Override
             public void run() {
                 try {
                     String sessionId = request.getRequestedSessionId();
@@ -53,8 +57,10 @@ public class OptManageServiceImpl implements OptManageService {
                     String userAgent = request.getHeader("User-Agent");
                     UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
                     Browser browser = userAgentInfo.getBrowser();//拿到浏览器信息
+                    BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();
                     Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
                     OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
+
 
                     //组装envionment
                     OptEnvironment env = new OptEnvironment();
@@ -70,6 +76,11 @@ public class OptManageServiceImpl implements OptManageService {
                     env.setManufacturer(operatingSystem.getManufacturer().getName());
                     env.setPhoneModel(MyUserAgentUtil.getPhone(userAgent));
                     env.setDeviceId(operatingSystem.getId()+"");
+
+                    //app
+                    if(BrowserType.APP.getName().equals(browserType.getName())) {
+
+                    }
 
                     optEnvironmentDAO.save(env);
 
@@ -96,4 +107,13 @@ public class OptManageServiceImpl implements OptManageService {
         return optRecordDAO.findOptRecordInfo(optRecord);
     }
 
+
+    public Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(int pageNo,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
+        Page page = new Page(pageNo);
+        List<OptRecordAndEnvVO> optRecordAndEnvVOList = optRecordAndEnvDAO.findOptRecordListPage(page,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
+        Page<OptRecordAndEnvVO> pageList = new Page<OptRecordAndEnvVO>();
+        pageList.setDataList(optRecordAndEnvVOList);
+        pageList.setCurrentPage(pageNo);
+        return pageList;
+    }
 }

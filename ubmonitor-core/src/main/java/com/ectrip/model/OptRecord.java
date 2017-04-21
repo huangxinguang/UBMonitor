@@ -28,6 +28,7 @@ public class OptRecord {
         return id;
     }
 
+
     public void setId(Integer id) {
         this.id = id;
     }
@@ -151,4 +152,6 @@ public class OptRecord {
     public void setOptEnvironment(OptEnvironment optEnvironment) {
         this.optEnvironment = optEnvironment;
     }
+
+
 }

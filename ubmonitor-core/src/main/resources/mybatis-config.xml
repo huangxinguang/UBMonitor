@@ -11,6 +11,7 @@
 	<!--设置别名-->
 	<typeAliases>
 		<typeAlias type="com.ectrip.model.OptEnvironment" alias="OptEnvironment"/>
+		<typeAlias type="com.ectrip.vo.OptRecordAndEnvVO" alias="OptRecordAndEnvVO"/>
 		<typeAlias type="com.ectrip.model.OptRecord" alias="OptRecord"/>
 		<typeAlias type="com.ectrip.utils.PageData" alias="pd"/>
 		<typeAlias type="com.ectrip.utils.Page" alias="Page"/>
@@ -19,7 +20,7 @@
 	<plugins>
 		<plugin interceptor="com.ectrip.plugin.PagePlugin">
 			<property name="dialect" value="MySQL"/>
-			<property name="pageSqlId" value=".*listPage.*"/>
+			<property name="pageSqlId" value=".*ListPage"/>
 		</plugin>
 	</plugins>
 	

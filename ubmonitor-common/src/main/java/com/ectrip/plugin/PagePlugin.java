@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.xml.bind.PropertyException;
@@ -78,23 +79,14 @@ public class PagePlugin implements Interceptor {
 					}
 					rs.close();
 					countStmt.close();
-					//System.out.println(count);
 					Page page = null;
 					if(parameterObject instanceof Page){	//参数就是Page实体
 						 page = (Page) parameterObject;
 						 page.setEntityOrField(true);	 
 						 page.setTotalResult(count);
 					}else{	//参数为某个实体，该实体拥有Page属性
-						Field pageField = ReflectHelper.getFieldByFieldName(parameterObject,"page");
-						if(pageField!=null){
-							page = (Page) ReflectHelper.getValueByFieldName(parameterObject,"page");
-							if(page==null)
-								page = new Page();
-							page.setEntityOrField(false); 
-							page.setTotalResult(count);
-							ReflectHelper.setValueByFieldName(parameterObject,"page", page); //通过反射，对实体对象设置分页对象
-						}else{
-							throw new NoSuchFieldException(parameterObject.getClass().getName()+"不存在 page 属性！");
+						if(parameterObject != null && ((Map)parameterObject).get("page") != null) {
+							page = (Page)((Map)parameterObject).get("page");
 						}
 					}
 					String pageSql = generatePageSql(sql,page);
