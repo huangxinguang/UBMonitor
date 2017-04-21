@@ -87,6 +87,7 @@ public class PagePlugin implements Interceptor {
 					}else{	//参数为某个实体，该实体拥有Page属性
 						if(parameterObject != null && ((Map)parameterObject).get("page") != null) {
 							page = (Page)((Map)parameterObject).get("page");
+							page.setTotalResult(count);
 						}
 					}
 					String pageSql = generatePageSql(sql,page);

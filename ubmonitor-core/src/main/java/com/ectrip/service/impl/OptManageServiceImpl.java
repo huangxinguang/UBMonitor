@@ -111,9 +111,7 @@ public class OptManageServiceImpl implements OptManageService {
     public Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(int pageNo,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
         Page page = new Page(pageNo);
         List<OptRecordAndEnvVO> optRecordAndEnvVOList = optRecordAndEnvDAO.findOptRecordListPage(page,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
-        Page<OptRecordAndEnvVO> pageList = new Page<OptRecordAndEnvVO>();
-        pageList.setDataList(optRecordAndEnvVOList);
-        pageList.setCurrentPage(pageNo);
-        return pageList;
+        page.setDataList(optRecordAndEnvVOList);
+        return page;
     }
 }

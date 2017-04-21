@@ -39,6 +39,7 @@
     <!--[if lte IE 8]>
     <script src="static/ace/js/html5shiv.js"></script>
     <script src="static/ace/js/respond.js"></script>
+    <script src="static/js/common/page.js"></script>
     <![endif]-->
     <!--查看图片插件 -->
     <link rel="stylesheet" media="screen" type="text/css" href="plugins/zoomimage/css/zoomimage.css" />
@@ -51,7 +52,7 @@
     <!--查看图片插件 -->
 </head>
 <body class="no-skin">
-<div class="main-container" id="main-container">
+<form class="main-container" id="main-container">
     <!-- /section:basics/sidebar -->
     <div class="main-content">
         <div class="main-content-inner">
@@ -88,7 +89,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input3" type="text" name="terminalName" value="${pd.terminalName }" placeholder="这里输入关键词" />
+                                    <input class="nav-search-input" autoco  mplete="off" id="nav-search-input3" type="text" name="terminalName" value="${pd.terminalName }" placeholder="这里输入关键词" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -121,7 +122,6 @@
                         <td style="vertical-align:top;padding-left:2px;"><a class="btn btn-light btn-xs" onclick="searchs();"  title="查询"><i id="nav-search-icon" class="ace-icon fa fa-search bigger-110 nav-search-icon blue"></i></a></td>
                     </tr>
                 </table>
-                </form>
                 <!-- 检索  -->
                 <table id="simple-table" class="table table-striped table-bordered table-hover"  style="margin-top:0px;">
                     <thead>
@@ -161,7 +161,7 @@
                                             畅游通
                                         </c:if>
                                         <c:if test="${optRecord.sysCode != '0' }">
-                                            PMS  ${optPage.pageStr}
+                                            PMS
                                         </c:if>
                                     </td>
                                     <td class='center'>${optRecord.channelName }</td>
@@ -195,7 +195,7 @@
                 <div class="page-header position-relative">
                     <table style="width:100%;">
                         <tr>
-                            <td style="vertical-align:top;"><div class="pagination" style="float: right;padding-top: 0px;margin-top: 0px;">${page.pageStr}</div></td>
+                            <td style="vertical-align:top;"><div class="pagination" style="float: right;padding-top: 0px;margin-top: 0px;">${optPage.pageStr}</div></td>
                         </tr>
                     </table>
                 </div>
@@ -203,6 +203,7 @@
             <!-- /.page-content -->
         </div>
     </div>
+    </form>
     <!-- /.main-content -->
     <!-- 返回顶部 -->
     <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
@@ -215,12 +216,13 @@
 <%@ include file="index/foot.jsp"%>
 <!-- ace scripts -->
 <script src="static/ace/js/ace/ace.js"></script>
+<script type="text/javascript" src="static/js/common/common.js"></script>
 </body>
 <script type="text/javascript">
-    //$(top.hangge());
+    $(top.hangge());
     //检索
     function searchs(){
-        //top.jzts();
+        top.jzts();
         $("#optForm").submit();
     }
 </script>
