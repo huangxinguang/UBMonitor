@@ -5,13 +5,18 @@ import com.ectrip.dao.OptRecordDAO;
 import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
+import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.utils.NetUtil;
-import nl.bitwalker.useragentutils.*;
+import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
+import eu.bitwalker.useragentutils.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
+
+import static eu.bitwalker.useragentutils.UserAgent.*;
 
 /**
  * Created by huangxinguang on 2017/4/20 下午2:24.
@@ -30,17 +35,18 @@ public class OptManageServiceImpl implements OptManageService {
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
-    @Override
-    public void saveOptAndEnv(final HttpServletRequest request, final OptRecord optRecord) {
 
-        // 使用线程池多线程处理
+    public void saveOptAndEnv(final HttpServletRequest request, final OptRecord optRecord) {
         threadPoolTaskExecutor.execute(new Runnable() {
+            @Override
             public void run() {
                 try {
                     String sessionId = request.getRequestedSessionId();
                     String operators = request.getRemoteUser();
                     String url = request.getRequestURL().toString();
                     String ip = request.getRemoteAddr();
+                    String clientIp = NetUtil.getIpAddr(request);
+                    String queryParams = request.getQueryString();
                     //String mac = NetUtil.getMACAddress(ip);
 
                     //解析user-agent
@@ -53,6 +59,7 @@ public class OptManageServiceImpl implements OptManageService {
                     //组装envionment
                     OptEnvironment env = new OptEnvironment();
                     env.setIp(ip);
+                    env.setClientIp(clientIp);
                     //env.setMac(mac);
                     env.setComputerName(operatingSystem.getDeviceType().getName());
                     env.setOperators(operators);
@@ -61,7 +68,7 @@ public class OptManageServiceImpl implements OptManageService {
                     env.setOs(operatingSystem.getName());
                     env.setOsVersion(operatingSystem.getDeviceType().getName());
                     env.setManufacturer(operatingSystem.getManufacturer().getName());
-                    env.setPhoneModel(NetUtil.getPhoneModel(userAgent));
+                    env.setPhoneModel(MyUserAgentUtil.getPhone(userAgent));
                     env.setDeviceId(operatingSystem.getId()+"");
 
                     optEnvironmentDAO.save(env);
@@ -70,6 +77,8 @@ public class OptManageServiceImpl implements OptManageService {
                     optRecord.setReqUrl(url);
                     optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
+                    optRecord.setReqParams(queryParams);
+                    optRecord.setTerminalName(operatingSystem.getName());
                     optRecordDAO.save(optRecord);
 
                 } catch (Exception e) {

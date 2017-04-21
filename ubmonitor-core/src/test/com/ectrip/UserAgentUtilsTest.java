@@ -1,6 +1,8 @@
 package com.ectrip;
 
-import nl.bitwalker.useragentutils.UserAgent;
+import com.ectrip.utils.MyUserAgentUtil;
+import com.ectrip.utils.NetUtil;
+import eu.bitwalker.useragentutils.UserAgent;
 import org.junit.Test;
 
 import java.util.regex.Matcher;
@@ -13,24 +15,33 @@ import java.util.regex.Pattern;
  */
 public class UserAgentUtilsTest {
 
+    public String getFromRegrex(String str,String pattern,int index){
+        Pattern p = Pattern.compile(pattern);
+        Matcher matcher = p.matcher(str);
+        while(matcher.find())
+            str = matcher.group(index);
+        return str;
+    }
+    public String parse(String userAgent){
+        String pattern1 = "(.*) AppleWebKit";
+        String pattern2 = ".* ";
+        String str = getFromRegrex(userAgent,pattern1,1);
+        String params[] = str.split(";");
+        return getFromRegrex(params[params.length-1],pattern2,0).trim();
+    }
+
     @Test
     public void testMobile() {
-
         String userAgent = "Huawei U8800    Android 2.3.3   Baidu 2.3   Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; U8800 Build/HuaweiU8800) AppleWebKit/530.17 (KHTML, like Gecko)";
         UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
-
     }
 
     @Test
     public void testMobileType() {
-        Pattern pattern = Pattern.compile(";\\s?(\\S*?\\s?\\S*?)\\s?(Build)?/");
         //String userAgent = "Huawei U8800    Android 2.3.3   UC 8.7  Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; U8800 Build/HuaweiU8800) UC AppleWebKit/534.31 (KHTML, like Gecko) Mobile Safari/534.31";
-        String userAgent = "Mozilla/5.0 (Linux; U; Android 4.3; zh-cn; R8007 Build/JLS36C) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30";
-        Matcher matcher = pattern.matcher(userAgent);
-        String model = null;
-        if (matcher.find()) {
-            model = matcher.group(1).trim();
-            //log.debug("通过userAgent解析出机型：" + model);
-        }
+        String userAgent = "Mozilla/5.0 (Linux; Android 7.0; FRD-AL00 Build/HUAWEIFRD-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.132 Mobile Safari/537.36";
+       // String userAgent = "Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1C28 Safari/419.3";
+        //String phone = MyUserAgentUtil.getPhone(userAgent);
+        String phone = this.parse(userAgent);
     }
 }

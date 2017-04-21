@@ -164,12 +164,13 @@
     </dependency>
 
 
-    <!-- https://mvnrepository.com/artifact/nl.bitwalker/UserAgentUtils -->
+    <!-- https://mvnrepository.com/artifact/eu.bitwalker/UserAgentUtils -->
     <dependency>
-      <groupId>nl.bitwalker</groupId>
+      <groupId>eu.bitwalker</groupId>
       <artifactId>UserAgentUtils</artifactId>
-      <version>1.2.4</version>
+      <version>1.20</version>
     </dependency>
+
 
 
     <!-- https://mvnrepository.com/artifact/junit/junit -->

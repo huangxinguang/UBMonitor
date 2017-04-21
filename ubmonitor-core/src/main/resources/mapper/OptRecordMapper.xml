@@ -116,7 +116,7 @@
 	</select>
 
 	<!-- 新增-->
-	<insert id="save" parameterType="OptRecord">
+	<insert id="save">
 		insert into <include refid="tableName"></include>(
 			<include refid="Field"></include>
 		) values (
