@@ -28,7 +28,7 @@ public class OptRecordController extends BaseController {
     private OptManageService optManageService;
 
     @ApiOperation(value = "插入操作记录",notes = "")
-    @ApiImplicitParam(name = "optRecord", value = "用户记录", required = true, dataType = "OptRecord")
+    @ApiImplicitParam(name = "optRecord", value = "用户记录", required = true, dataType = "OptRecord",paramType = "OptRecord")
     @RequestMapping(value = "/doOperate",method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView doOperate(HttpServletRequest request, OptRecord optRecord) {
         ModelAndView mav = getModelAndView();
@@ -41,7 +41,7 @@ public class OptRecordController extends BaseController {
     @ApiImplicitParams({
             @ApiImplicitParam(name = "currentPage", value = "当前页", required = true, dataType = "Integer"),
             @ApiImplicitParam(name = "userId", value = "用户ID", required = false, dataType = "String"),
-            @ApiImplicitParam(name = "sysCode", value = "用户ID", required = false, dataType = "String"),
+            @ApiImplicitParam(name = "sysCode", value = "系统ID", required = false, dataType = "String"),
             @ApiImplicitParam(name = "channelCode", value = "渠道编号", required = false, dataType = "String"),
             @ApiImplicitParam(name = "terminalName", value = "终端名称", required = false, dataType = "String"),
             @ApiImplicitParam(name = "sessionId", value = "回话ID", required = false, dataType = "String"),

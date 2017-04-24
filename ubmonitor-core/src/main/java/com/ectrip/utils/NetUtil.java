@@ -90,19 +90,4 @@ public class NetUtil {
         }
         return macAddress;
     }
-
-
-    /**
-     * 获取手机型号
-     * @return Mozilla/5.0 (Linux; Android 7.0; FRD-AL00 Build/HUAWEIFRD-AL00) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.132 Mobile Safari/537.36
-     */
-    public static String getPhoneModel(String userAgent) {
-        Pattern pattern = Pattern.compile(";\\s?(\\S*?\\s?\\S*?)\\s?(Build)?/");
-        Matcher matcher = pattern.matcher(userAgent);
-        String model = null;
-        if (matcher.find()) {
-            model = matcher.group(1).trim();
-        }
-        return model;
-    }
 }
