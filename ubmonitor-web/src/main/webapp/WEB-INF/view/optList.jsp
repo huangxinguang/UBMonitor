@@ -128,7 +128,7 @@
                 <table id="simple-table" class="table table-striped table-bordered table-hover"  style="margin-top:0px;">
                     <thead>
                     <tr>
-                        <th class="center" style="width:50px;">序号</th>
+                        <th class="center" style="width:50px;">编号</th>
                         <th class="center" style="width:50px;">用户名</th>
                         <th class="center" >系统编号</th>
                         <th class="center" >渠道名称</th>
@@ -156,7 +156,7 @@
                         <c:when test="${not empty optPage}">
                             <c:forEach items="${optPage.dataList}" var="optRecord" varStatus="vs">
                                 <tr>
-                                    <td class='center'>${vs.index+1}</td>
+                                    <td class='center'>${optRecord.id}</td>
                                     <td class='center'>${optRecord.userId }</td>
                                     <td class='center'>
                                         <c:if test="${optRecord.sysCode == '0' }">
