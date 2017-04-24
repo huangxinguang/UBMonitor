@@ -52,14 +52,12 @@
     <!--查看图片插件 -->
 </head>
 <body class="no-skin">
-<form class="main-container" id="main-container">
+
     <!-- /section:basics/sidebar -->
+    <form action="optManage/findOptList" method="get" name="optForm" id="optForm">
+
     <div class="main-content">
         <div class="main-content-inner">
-            <!-- 检索  -->
-            <!-- 检索  -->
-            <form action="optManage/findOptList" method="post" name="optForm" id="optForm">
-                <input type="hidden" name="pageNo" value="1">
                 <table style="margin-top:5px;">
                     <tr>
                         <td>
@@ -203,7 +201,6 @@
                         </tr>
                     </table>
                 </div>
-            </form>
             <!-- /.page-content -->
         </div>
     </div>
@@ -221,6 +218,9 @@
 <!-- ace scripts -->
 <script src="static/ace/js/ace/ace.js"></script>
 <script type="text/javascript" src="static/js/common/common.js"></script>
+<script type="text/javascript" src="static/js/common/page.js"></script>
+<script type="text/javascript" src="static/js/common/index.js"></script>
+<script type="text/javascript" src="static/js/common/head.js"></script>
 </body>
 <script type="text/javascript">
     $(top.hangge());

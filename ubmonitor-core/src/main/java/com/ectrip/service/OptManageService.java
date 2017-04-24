@@ -38,5 +38,5 @@ public interface OptManageService {
      * @param sceneNo
      * @return
      */
-    Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(int pageNo, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
+    Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
 }

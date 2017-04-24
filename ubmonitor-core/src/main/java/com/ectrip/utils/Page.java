@@ -20,6 +20,7 @@ public class Page<E> {
 	private List<E> dataList = new ArrayList<E>();
 	
 	public Page(){
+		this.currentPage = 1;
 		this.showCount = 15;
 	}
 
