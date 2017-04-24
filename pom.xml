@@ -21,7 +21,6 @@
   <modules>
     <module>ubmonitor-web</module>
     <module>ubmonitor-core</module>
-    <module>ubmonitor-common</module>
   </modules>
 
   <dependencies>
