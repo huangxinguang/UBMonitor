@@ -79,7 +79,9 @@ public class OptManageServiceImpl implements OptManageService {
 
                     //app
                     if(BrowserType.APP.getName().equals(browserType.getName())) {
-
+                        env.setAppName(browserType.getName());
+                        env.setAppType(operatingSystem.getDeviceType().getName());
+                        env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
                     }
 
                     optEnvironmentDAO.save(env);

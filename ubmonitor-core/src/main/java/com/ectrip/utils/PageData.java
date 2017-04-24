@@ -1,13 +1,9 @@
 package com.ectrip.utils;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
 import javax.servlet.http.HttpServletRequest;
-/** 
+import java.util.*;
+
+/**
  * 说明：参数封装Map
  * 创建人：FH Q313596790
  * 修改时间：2014年9月20日

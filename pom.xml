@@ -21,7 +21,6 @@
   <modules>
     <module>ubmonitor-web</module>
     <module>ubmonitor-core</module>
-    <module>ubmonitor-common</module>
   </modules>
 
   <dependencies>
@@ -150,6 +149,15 @@
       <artifactId>slf4j-log4j12</artifactId>
       <version>1.7.9</version>
     </dependency>
+
+    <!-- ojdbc6 -->
+<!--    <dependency>
+      <groupId>ojdbc6</groupId>
+      <artifactId>ojdbc6</artifactId>
+      <version>1.0</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc6.jar</systemPath>
+    </dependency>-->
 
     <!-- JSP tag -->
     <dependency>
