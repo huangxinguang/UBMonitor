@@ -11,11 +11,9 @@ import com.ectrip.utils.NetUtil;
 import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import eu.bitwalker.useragentutils.*;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
@@ -96,15 +94,6 @@ public class OptManageServiceImpl implements OptManageService {
             }
         });
     }
-
-    /**
-     * 根据指定条件查询用户操作记录以及操作时的用户环境
-     * @param optRecord
-     */
-    public OptRecord findOptRecordInfo(OptRecord optRecord){
-        return optRecordDAO.findOptRecordInfo(optRecord);
-    }
-
 
     public Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
         Page page = new Page();

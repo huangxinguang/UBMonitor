@@ -8,10 +8,5 @@ import com.ectrip.model.OptRecord;
  * Desc:
  */
 public interface OptRecordDAO {
-    /**
-     * 根据指定条件查询用户操作记录以及操作时用户环境
-     * @param optRecord
-     */
-    OptRecord findOptRecordInfo(OptRecord optRecord);
     public void save(OptRecord optRecord);
 }
