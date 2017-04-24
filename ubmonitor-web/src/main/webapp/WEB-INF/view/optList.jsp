@@ -15,7 +15,7 @@
     <base href="<%=basePath%>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title>${pd.SYSNAME}</title>
+    <title>查询结果展示</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <!-- bootstrap & fontawesome -->
@@ -158,14 +158,7 @@
                                 <tr>
                                     <td class='center'>${optRecord.id}</td>
                                     <td class='center'>${optRecord.userId }</td>
-                                    <td class='center'>
-                                        <c:if test="${optRecord.sysCode == '0' }">
-                                            畅游通
-                                        </c:if>
-                                        <c:if test="${optRecord.sysCode != '0' }">
-                                            PMS
-                                        </c:if>
-                                    </td>
+                                    <td class='center'>${optRecord.sysCode }</td>
                                     <td class='center'>${optRecord.channelName }</td>
                                     <td class='center'>${optRecord.terminalName }</td>
                                     <td class='center'>${optRecord.sessionId }</td>
