@@ -59,6 +59,13 @@ public class OptRecordController extends BaseController {
         Page<OptRecordAndEnvVO> optPage = optManageService.findOptRecordAndEnvListPage(currentPage,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
         ModelAndView mav = getModelAndView();
         mav.addObject("optPage",optPage);
+        mav.addObject("userId",userId);
+        mav.addObject("sysCode",sysCode);
+        mav.addObject("channelCode",channelCode);
+        mav.addObject("terminalName",terminalName);
+        mav.addObject("sessionId",sessionId);
+        mav.addObject("reqUrl",reqUrl);
+        mav.addObject("sceneNo",sceneNo);
         mav.setViewName("optList");
         return mav;
     }

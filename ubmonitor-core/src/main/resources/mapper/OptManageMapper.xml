@@ -104,6 +104,7 @@
 		<if test="sceneNo!=null and sceneNo!=''">
 			AND CHANNEL_CODE=#{sceneNo}
 		</if>
+		ORDER BY USER_ID,OPT_TIME
 	</select>
 
 

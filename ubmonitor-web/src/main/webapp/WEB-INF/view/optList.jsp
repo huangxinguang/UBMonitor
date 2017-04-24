@@ -63,7 +63,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input" type="text" name="userId" value="${pd.userId }" placeholder="这里输入用户编号" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input" type="text" name="userId" value="${userId }" placeholder="这里输入用户编号" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -71,7 +71,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input1" type="text" name="sysCode" value="${pd.sysCode }" placeholder="这里输入系统编号" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input1" type="text" name="sysCode" value="${sysCode }" placeholder="这里输入系统编号" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -79,7 +79,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input2" type="text" name="channelCode" value="${pd.channelCode }" placeholder="这里输入渠道编号" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input2" type="text" name="channelCode" value="${channelCode }" placeholder="这里输入渠道编号" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -87,7 +87,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autoco  mplete="off" id="nav-search-input3" type="text" name="terminalName" value="${pd.terminalName }" placeholder="这里输入终端" />
+                                    <input class="nav-search-input" autoco  mplete="off" id="nav-search-input3" type="text" name="terminalName" value="${terminalName }" placeholder="这里输入终端" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -95,7 +95,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input4" type="text" name="sessionId" value="${pd.sessionId }" placeholder="这里输入sessionID" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input4" type="text" name="sessionId" value="${sessionId }" placeholder="这里输入sessionID" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -103,7 +103,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input5" type="text" name="reqUrl" value="${pd.reqUrl }" placeholder="这里输入请求路径" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input5" type="text" name="reqUrl" value="${reqUrl }" placeholder="这里输入请求路径" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -111,7 +111,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input6" type="text" name="sceneNo" value="${pd.sceneNo }" placeholder="这里输入场景号" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input6" type="text" name="sceneNo" value="${sceneNo }" placeholder="这里输入场景号" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
