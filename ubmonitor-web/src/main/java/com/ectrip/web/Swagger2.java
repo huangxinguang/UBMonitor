@@ -1,9 +1,7 @@
 package com.ectrip.web;
 
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
@@ -33,7 +31,7 @@ public class Swagger2 extends WebMvcConfigurationSupport {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring 中使用Swagger2构建RESTful APIs")
+                .title("用户行为监控系统RESTful APIs")
                 .termsOfServiceUrl("http://www.ectrip.com")
                 .description("ectrip")
                 .version("1.1")

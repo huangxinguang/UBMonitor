@@ -11,6 +11,8 @@ import com.ectrip.utils.NetUtil;
 import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import eu.bitwalker.useragentutils.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,8 @@ import java.util.List;
  */
 @Service
 public class OptManageServiceImpl implements OptManageService {
+
+    private Logger logger = LoggerFactory.getLogger(OptManageServiceImpl.class);
 
     @Autowired
     private OptEnvironmentDAO optEnvironmentDAO;
@@ -89,6 +93,7 @@ public class OptManageServiceImpl implements OptManageService {
                     optRecordDAO.save(optRecord);
 
                 } catch (Exception e) {
+                    logger.info("保存记录异常",e);
                     e.printStackTrace();
                 }
             }
@@ -100,8 +105,13 @@ public class OptManageServiceImpl implements OptManageService {
         if(pageNo != null) {
             page.setCurrentPage(pageNo);
         }
-        List<OptRecordAndEnvVO> optRecordAndEnvVOList = optRecordAndEnvDAO.findOptRecordListPage(page,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
-        page.setDataList(optRecordAndEnvVOList);
+        try {
+            List<OptRecordAndEnvVO> optRecordAndEnvVOList = optRecordAndEnvDAO.findOptRecordListPage(page, userId, sysCode, channelCode, terminalName, sessionId, reqUrl, sceneNo);
+            page.setDataList(optRecordAndEnvVOList);
+        }catch (Exception e) {
+            logger.info("查询记录异常",e);
+            e.printStackTrace();
+        }
         return page;
     }
 }
