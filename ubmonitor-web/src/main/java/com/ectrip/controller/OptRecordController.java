@@ -28,7 +28,7 @@ public class OptRecordController extends BaseController {
     private OptManageService optManageService;
 
     @ApiOperation(value = "插入操作记录",notes = "")
-    @ApiImplicitParam(name = "optRecord", value = "用户记录", required = true, dataType = "OptRecord")
+    @ApiImplicitParam(name = "optRecord", value = "用户记录", required = true, dataType = "OptRecord",paramType = "OptRecord")
     @RequestMapping(value = "/doOperate",method = {RequestMethod.GET,RequestMethod.POST})
     public ModelAndView doOperate(HttpServletRequest request, OptRecord optRecord) {
         ModelAndView mav = getModelAndView();
