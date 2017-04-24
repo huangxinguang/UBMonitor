@@ -47,7 +47,6 @@ public class OptManageServiceImpl implements OptManageService {
                 try {
                     String sessionId = request.getRequestedSessionId();
                     String operators = request.getRemoteUser();
-                    String url = request.getRequestURL().toString();
                     String ip = request.getRemoteAddr();
                     String clientIp = NetUtil.getIpAddr(request);
                     String queryParams = request.getQueryString();
@@ -60,7 +59,6 @@ public class OptManageServiceImpl implements OptManageService {
                     BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();
                     Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
                     OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
-
 
                     //组装envionment
                     OptEnvironment env = new OptEnvironment();
@@ -87,10 +85,8 @@ public class OptManageServiceImpl implements OptManageService {
                     optEnvironmentDAO.save(env);
 
                     //组装用户操作
-                    optRecord.setReqUrl(url);
                     optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
-                    optRecord.setReqParams(queryParams);
                     optRecord.setTerminalName(operatingSystem.getName());
                     optRecordDAO.save(optRecord);
 
