@@ -89,7 +89,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autoco  mplete="off" id="nav-search-input3" type="text" name="terminalName" value="${pd.terminalName }" placeholder="这里输入关键词" />
+                                    <input class="nav-search-input" autoco  mplete="off" id="nav-search-input3" type="text" name="terminalName" value="${pd.terminalName }" placeholder="这里输入终端" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -97,7 +97,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input4" type="text" name="sessionId" value="${pd.sessionId }" placeholder="这里输入关键词" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input4" type="text" name="sessionId" value="${pd.sessionId }" placeholder="这里输入sessionID" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -105,7 +105,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input5" type="text" name="reqUrl" value="${pd.reqUrl }" placeholder="这里输入关键词" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input5" type="text" name="reqUrl" value="${pd.reqUrl }" placeholder="这里输入请求路径" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -113,7 +113,7 @@
                         <td>
                             <div class="nav-search">
                                 <span class="input-icon">
-                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input6" type="text" name="sceneNo" value="${pd.sceneNo }" placeholder="这里输入关键词" />
+                                    <input class="nav-search-input" autocomplete="off" id="nav-search-input6" type="text" name="sceneNo" value="${pd.sceneNo }" placeholder="这里输入场景号" />
                                     <i class="ace-icon fa fa-search nav-search-icon"></i>
                                 </span>
                             </div>
@@ -121,6 +121,10 @@
 
                         <td style="vertical-align:top;padding-left:2px;"><a class="btn btn-light btn-xs" onclick="searchs();"  title="查询"><i id="nav-search-icon" class="ace-icon fa fa-search bigger-110 nav-search-icon blue"></i></a></td>
                     </tr>
+
+                    <%-- 隐藏的回车触发提交 --%>
+                    <input name="tj" type="submit" style="display: none"/>
+
                 </table>
                 <!-- 检索  -->
                 <table id="simple-table" class="table table-striped table-bordered table-hover"  style="margin-top:0px;">
