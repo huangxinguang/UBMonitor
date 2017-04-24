@@ -89,31 +89,6 @@
 		#{envId}
 	</sql>
 
-	<!-- 按条件查询-->
-	<select id="findOptRecordInfo" resultMap="baseResultMap" parameterType="OptRecord">
-		SELECT * FROM OPT_RECORD optr,OPT_ENVIRONMENT opte WHERE optr.ENV_ID=opte.ID
-		<if test="#{userId}!=null">
-			AND USER_ID=#{userId}
-		</if>
-		<if test="#{sysCode}!=null">
-			AND SYS_CODE=#{sysCode}
-		</if>
-		<if test="#{channelCode}!=null">
-			AND CHANNEL_CODE=#{channelCode}
-		</if>
-		<if test="#{terminalName}!=null">
-			AND CHANNEL_CODE=#{terminalName}
-		</if>
-		<if test="#{sessionId}!=null">
-			AND CHANNEL_CODE=#{sessionId}
-		</if>
-		<if test="#{reqUrl}!=null">
-			AND CHANNEL_CODE=#{reqUrl}
-		</if>
-		<if test="#{sceneNo}!=null">
-			AND CHANNEL_CODE=#{sceneNo}
-		</if>
-	</select>
 
 	<!-- 新增-->
 	<insert id="save">

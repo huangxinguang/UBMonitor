@@ -5,7 +5,6 @@ import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * Created by huangxinguang on 2017/4/20 下午2:18.
@@ -13,12 +12,6 @@ import java.util.List;
  * Desc:
  */
 public interface OptManageService {
-
-    /**
-     * 根据指定条件查询用户操作记录以及操作时的用户环境
-     * @param optRecord
-     */
-    OptRecord findOptRecordInfo(OptRecord optRecord);
 
     /**
      * 保存用户操作，和操作环境
