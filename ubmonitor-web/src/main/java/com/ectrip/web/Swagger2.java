@@ -1,4 +1,4 @@
-package com.ectrip.controller;
+package com.ectrip.web;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

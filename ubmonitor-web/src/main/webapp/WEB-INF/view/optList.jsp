@@ -54,7 +54,7 @@
 <body class="no-skin">
 
     <!-- /section:basics/sidebar -->
-    <form action="optManage/findOptList" method="get" name="optForm" id="optForm">
+    <form action="/optManage/findOptList" name="optForm" id="optForm" method="post">
 
     <div class="main-content">
         <div class="main-content-inner">

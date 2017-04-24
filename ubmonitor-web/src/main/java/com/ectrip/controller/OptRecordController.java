@@ -54,7 +54,7 @@ public class OptRecordController extends BaseController {
             @ApiImplicitParam(name = "reqUrl", value = "请求URL", required = false, dataType = "String"),
             @ApiImplicitParam(name = "sceneNo", value = "场景编号", required = false, dataType = "String")
     })
-    @RequestMapping(value = "/findOptList",method = RequestMethod.GET)
+    @RequestMapping(value = "/findOptList",method = RequestMethod.POST)
     public ModelAndView findOptRecordAndEnvList(Integer currentPage,String userId,String sysCode,String channelCode,String terminalName,String sessionId,String reqUrl,String sceneNo) {
         Page<OptRecordAndEnvVO> optPage = optManageService.findOptRecordAndEnvListPage(currentPage,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
         ModelAndView mav = getModelAndView();
