@@ -46,44 +46,43 @@ public class OptManageServiceImpl implements OptManageService {
     public void saveOptAndEnv(final HttpServletRequest request, final OptRecord optRecord) {
         threadPoolTaskExecutor.execute(new Runnable() {
             public void run() {
+                String sessionId = request.getRequestedSessionId();
+                String operators = request.getRemoteUser();
+                String ip = request.getRemoteAddr();
+                //String clientIp = NetUtil.getIpAddr(request);
+                String queryParams = request.getQueryString();
+                //String mac = NetUtil.getMACAddress(ip);
+
+                //解析user-agent
+                String userAgent = request.getHeader("User-Agent");
+                UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
+                Browser browser = userAgentInfo.getBrowser();//拿到浏览器信息
+                BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();
+                Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
+                OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
+
+                //组装envionment
+                OptEnvironment env = new OptEnvironment();
+                env.setIp(ip);
+                //env.setClientIp(clientIp);
+                //env.setMac(mac);
+                env.setComputerName(operatingSystem.getDeviceType().getName());
+                env.setOperators(operators);
+                env.setBrowser(browser.getName());
+                env.setBrowserVersion(version.getVersion());
+                env.setOs(operatingSystem.getName());
+                env.setOsVersion(operatingSystem.getDeviceType().getName());
+                env.setManufacturer(operatingSystem.getManufacturer().getName());
+                env.setPhoneModel(MyUserAgentUtil.getPhone(userAgent));
+                env.setDeviceId(operatingSystem.getId()+"");
+
+                //app
+                if(BrowserType.APP.getName().equals(browserType.getName())) {
+                    env.setAppName(browserType.getName());
+                    env.setAppType(operatingSystem.getDeviceType().getName());
+                    env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
+                }
                 try {
-                    String sessionId = request.getRequestedSessionId();
-                    String operators = request.getRemoteUser();
-                    String ip = request.getRemoteAddr();
-                    String clientIp = NetUtil.getIpAddr(request);
-                    String queryParams = request.getQueryString();
-                    //String mac = NetUtil.getMACAddress(ip);
-
-                    //解析user-agent
-                    String userAgent = request.getHeader("User-Agent");
-                    UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
-                    Browser browser = userAgentInfo.getBrowser();//拿到浏览器信息
-                    BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();
-                    Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
-                    OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
-
-                    //组装envionment
-                    OptEnvironment env = new OptEnvironment();
-                    env.setIp(ip);
-                    env.setClientIp(clientIp);
-                    //env.setMac(mac);
-                    env.setComputerName(operatingSystem.getDeviceType().getName());
-                    env.setOperators(operators);
-                    env.setBrowser(browser.getName());
-                    env.setBrowserVersion(version.getVersion());
-                    env.setOs(operatingSystem.getName());
-                    env.setOsVersion(operatingSystem.getDeviceType().getName());
-                    env.setManufacturer(operatingSystem.getManufacturer().getName());
-                    env.setPhoneModel(MyUserAgentUtil.getPhone(userAgent));
-                    env.setDeviceId(operatingSystem.getId()+"");
-
-                    //app
-                    if(BrowserType.APP.getName().equals(browserType.getName())) {
-                        env.setAppName(browserType.getName());
-                        env.setAppType(operatingSystem.getDeviceType().getName());
-                        env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
-                    }
-
                     optEnvironmentDAO.save(env);
 
                     //组装用户操作
