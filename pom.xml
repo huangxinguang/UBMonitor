@@ -21,8 +21,8 @@
   </properties>
 
   <modules>
-    <module>ubmonitor-web</module>
-    <module>ubmonitor-core</module>
+    <module>UBMonitor-web</module>
+    <module>UBMonitor-core</module>
   </modules>
 
   <dependencies>
