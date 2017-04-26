@@ -8,23 +8,23 @@
   
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.ectrip</groupId>
-  <artifactId>ubmonitor-web</artifactId>
+  <artifactId>UBMonitor-web</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>ubmonitor-web Maven Webapp</name>
+  <name>UBMonitor-web Maven Webapp</name>
   <url>http://maven.apache.org</url>
 
   <dependencies>
 
     <dependency>
       <groupId>com.ectrip</groupId>
-      <artifactId>ubmonitor-core</artifactId>
+      <artifactId>UBMonitor-core</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
 
   </dependencies>
 
   <build>
-    <finalName>ubmonitor-web</finalName>
+    <finalName>UBMonitor-web</finalName>
   </build>
 </project>
