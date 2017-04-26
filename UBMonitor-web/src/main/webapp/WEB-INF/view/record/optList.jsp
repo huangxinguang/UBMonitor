@@ -50,21 +50,26 @@
 </html>
 <script>
     var $table = $('#table');
+    var params[] = {
+
+    };
     $(function() {
         // bootstrap table初始化
         $table.bootstrapTable({
             method:"get",
-            url: '${basePath}/optManage/findOptRecordList',
-            striped: true,
-            search: true,
-            showRefresh: true,
-            showColumns: true,
-            minimumCountColumns: 2,
-            clickToSelect: true,
-            detailView: true,
+            url: '${basePath}/optManage/findOptRecordList', //请求后台的URL（*）
+            datalocale:"zh-US",                                //表格汉化
+            striped: true,                                      //是否显示行间隔色
+            search: false,                                      //是否启用搜索
+            showRefresh: true,                                 //是否显示刷新
+            showColumns: true,                                 //显示下拉框勾选要显示的列
+            minimumCountColumns: 2,                           //最少允许的列数
+            clickToSelect: true,                              //是否启用点击选中行
+            detailView: true,                                  //是否显示父子表
             detailFormatter: 'detailFormatter',
-            pagination: true,
+            pagination: true,                                  //是否显示分页
             paginationLoop: false,
+            queryParams:"",                                    //条件参数
             sidePagination: 'server',
             silentSort: false,
             smartDisplay: false,
@@ -79,17 +84,17 @@
                 {field: 'id', checkbox: true},
                 {field: 'sysCode', title: '系统编号', sortable: true, align: 'center'},
                 {field: 'channelName', title: '渠道编号'},
-                {field: 'sessionId', title: '终端'},
-                {field: 'reqParams', title: '终端'},
-                {field: 'reqUrl', title: '终端'},
-                {field: 'userId', title: '终端'},
-                {field: 'sceneNo', title: '终端'},
-                {field: 'reqMethodName', title: '终端'},
-                {field: 'optBrief', title: '终端'},
-                {field: 'optTime', title: '终端'},
-                {field: 'optDescription', title: '终端'},
-                {field: 'ip', title: '终端'},
-                {field: 'clientIp', title: '终端'}
+                {field: 'sessionId', title: '会话ID'},
+                {field: 'reqParams', title: '请求参数'},
+                {field: 'reqUrl', title: '请求路径'},
+                {field: 'userId', title: '用户编号'},
+                {field: 'sceneNo', title: '场景号'},
+                {field: 'reqMethodName', title: '动作名称'},
+                {field: 'optBrief', title: '操作描述'},
+                {field: 'optTime', title: '操作时间'},
+                {field: 'optDescription', title: '操作详情'},
+                {field: 'ip', title: '用户IP'},
+                {field: 'clientIp', title: '登录IP'}
             ]
         });
     });
