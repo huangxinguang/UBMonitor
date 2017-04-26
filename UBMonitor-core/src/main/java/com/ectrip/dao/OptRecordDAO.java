@@ -8,5 +8,6 @@ import com.ectrip.model.OptRecord;
  * Desc:
  */
 public interface OptRecordDAO {
+
     public void save(OptRecord optRecord);
 }

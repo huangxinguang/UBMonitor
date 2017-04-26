@@ -3,6 +3,7 @@ package com.ectrip.service;
 import com.ectrip.model.OptRecord;
 import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
+import com.github.pagehelper.PageInfo;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -32,4 +33,19 @@ public interface OptManageService {
      * @return
      */
     Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
+
+    /**
+     * 按条件查询操作记录和环境
+     * @param pageNo 当前页号
+     * @param pageSize 页面大小
+     * @param userId  用户ID
+     * @param sysCode 系统编号
+     * @param channelCode 渠道编号
+     * @param terminalName 终端名称
+     * @param sessionId 回话id
+     * @param reqUrl 请求url
+     * @param sceneNo 场景编号
+     * @return
+     */
+    PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
 }

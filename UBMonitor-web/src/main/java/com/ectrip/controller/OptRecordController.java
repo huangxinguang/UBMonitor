@@ -4,16 +4,20 @@ import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
 import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
+import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by huangxinguang on 2017/4/20 上午10:08.
@@ -62,6 +66,18 @@ public class OptRecordController extends BaseController {
         mav.addObject("sceneNo",sceneNo);
         mav.setViewName("record/optList");
         return mav;
+    }
+
+    @ApiOperation(value="查询监控记录JSon",notes = "返回查询结果的json")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNo", value = "当前页", required = true, dataType = "Integer"),
+            @ApiImplicitParam(name = "pageSize", value = "页面大小", required = true, dataType = "Integer")
+    })
+    @ResponseBody
+    @RequestMapping(value = "/findOptRecordList",method = RequestMethod.GET)
+    public Object findOptRecordList(Integer offset,Integer limit,String order) {
+        PageInfo<OptRecordAndEnvVO> pageInfo = optManageService.findOptRecordAndEnvListPage(offset,limit,null,null,null,null,null,null,null);
+        return pageInfo;
     }
 
 }

@@ -10,6 +10,7 @@ import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.utils.NetUtil;
 import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
+import com.github.pagehelper.PageInfo;
 import eu.bitwalker.useragentutils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -112,5 +113,11 @@ public class OptManageServiceImpl implements OptManageService {
             e.printStackTrace();
         }
         return page;
+    }
+
+    @Override
+    public PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
+        List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(pageNo,pageSize,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
+        return new PageInfo<>(list);
     }
 }
