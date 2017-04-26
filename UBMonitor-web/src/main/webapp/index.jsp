@@ -48,7 +48,7 @@
 <script>
     BUI.use('common/main',function(){
         var config = [{id:'1',menu:[{text:'系统管理',
-                                        items:[{id:'12',text:'监控记录  ',href:'Node/index.html'}]
+                                        items:[{id:'12',text:'监控记录  ',href:'optManage/optList'}]
         }]}];
         new PageUtil.MainPage({
             modulesConfig : config

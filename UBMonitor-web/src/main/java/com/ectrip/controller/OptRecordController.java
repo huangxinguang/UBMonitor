@@ -60,7 +60,7 @@ public class OptRecordController extends BaseController {
         mav.addObject("sessionId",sessionId);
         mav.addObject("reqUrl",reqUrl);
         mav.addObject("sceneNo",sceneNo);
-        mav.setViewName("optList");
+        mav.setViewName("record/optList");
         return mav;
     }
 
