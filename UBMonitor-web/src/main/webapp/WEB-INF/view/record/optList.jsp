@@ -18,8 +18,6 @@
     <script type="text/javascript" src="${basePath}/Js/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="${basePath}/Js/bootstrap-table-zh-CN.min.js"></script>
     <script type="text/javascript" src="${basePath}/Js/common.js"></script>
-    <script type="text/javascript" src="${basePath}/Js/common.js"></script>
-
 
     <style type="text/css">
         body {
