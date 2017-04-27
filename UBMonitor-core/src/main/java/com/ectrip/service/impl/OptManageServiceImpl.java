@@ -93,7 +93,7 @@ public class OptManageServiceImpl implements OptManageService {
                     optRecordDAO.save(optRecord);
 
                 } catch (Exception e) {
-                    logger.info("保存记录异常,操作环境：{},操作数据:{}",env.toString(),optRecord.toString(),e);
+                    logger.info(" 保存记录异常,操作环境：{}, 操作数据:{}",env.toString(),optRecord.toString(),e);
                     e.printStackTrace();
                 }
             }
