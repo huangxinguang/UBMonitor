@@ -45,16 +45,16 @@
 <form class="form-inline definewidth m20" action="" method="get">
     系统编号：
     <select name="sysCode" id="sysCode">
-       <option>所有</option>
-       <option>PMS</option>
-       <option>畅游通</option>
+       <option value="-1">所有</option>
+       <option value="0">PMS</option>
+       <option value="1">畅游通</option>
     </select>&nbsp;&nbsp;&nbsp;&nbsp;
 
     渠道名称：
-    <select name="channelName" id="channelName">
-       <option>所有</option>
-       <option>九寨沟</option>
-       <option>都江堰</option>
+    <select name="channelCode" id="channelCode">
+       <option value="-1">所有</option>
+       <option value="502">九寨沟</option>
+       <option value="520">青都</option>
     </select><br><br>
 
     <%--用户ID：--%>
@@ -159,7 +159,7 @@
                 limit: params.limit,   //页面大小
                 offset: params.offset,  //页码
                 sysCode: $("#sysCode").val(),
-                channelName: $("#channelName").val(),
+                channelCode: $("#channelCode").val(),
                 //terminalName: $("#terminalName").val(),
                 //sceneNo: $("#sceneNo").val(),
                 userId: $("#userId").val(),
