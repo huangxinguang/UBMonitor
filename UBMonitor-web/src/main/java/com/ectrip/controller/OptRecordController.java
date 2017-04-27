@@ -69,7 +69,7 @@ public class OptRecordController extends BaseController {
             pageNo = (offset/limit +1);
         }
         PageInfo<OptRecordAndEnvVO> pageInfo = optManageService.findOptRecordAndEnvListPage(pageNo,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,sceneNo);
-        Map<String,Object> resultMap = new HashMap<String,Object>();
+        Map<String,Object> resultMap = new HashMap<>();
         resultMap.put("rows",pageInfo.getList());
         resultMap.put("total",pageInfo.getTotal());
         return resultMap;
