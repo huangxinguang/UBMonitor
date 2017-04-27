@@ -84,7 +84,7 @@ public class OptManageServiceImpl implements OptManageService {
                     env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
                 }
                 try {
-                    logger.info("操作环境:"+env.toString());
+                    logger.info("操作环境:{}",env.toString());
                     optEnvironmentDAO.save(env);
 
                     //组装用户操作
@@ -92,7 +92,7 @@ public class OptManageServiceImpl implements OptManageService {
                     optRecord.setEnvId(env.getId());
                     optRecord.setOptTime(DateUtil.getDateTime(new Date()));
                     optRecord.setTerminalName(operatingSystem.getName());
-                    logger.info("操作数据:"+optRecord.toString());
+                    logger.info("操作数据:{}",optRecord.toString());
                     optRecordDAO.save(optRecord);
 
                 } catch (Exception e) {
