@@ -56,40 +56,25 @@
         // bootstrap table初始化
         $table.bootstrapTable({
             method:"get",
-<<<<<<< Updated upstream
-            url: '${basePath}/optManage/findOptRecordList',
+            url: '${basePath}/optManage/findOptRecordList', //请求后台的URL（*）
             //data:'${basePath}/data.json',
-            striped: true,
-            search: false,
+            striped: true, //是否显示行间隔色
+            search: false,//是否启用搜索
             cache:false,
             dataType:'json',
-            showRefresh: true,
-            showColumns: true,
+            showRefresh: true,//是否显示刷新
+            showColumns: true,//显示下拉框勾选要显示的列
             showToggle:true,
             showPaginationSwitch:true,
-            minimumCountColumns: 2,
+            minimumCountColumns: 2,//最少允许的列数
             clickToSelect: true,
-            detailView: true,
+            detailView: true,//是否显示父子表
         /*    detailFormatter: 'detailFormatter',*/
-            pagination: true,
+            pagination: true,//是否显示分页
             pageNumber:1,
             pageSize:10,
             paginationLoop: false,
             pageList: [10, 25, 50, 100],
-=======
-            url: '${basePath}/optManage/findOptRecordList', //请求后台的URL（*）
-            striped: true,                                      //是否显示行间隔色
-            search: false,                                      //是否启用搜索
-            showRefresh: true,                                 //是否显示刷新
-            showColumns: true,                                 //显示下拉框勾选要显示的列
-            minimumCountColumns: 2,                           //最少允许的列数
-            clickToSelect: true,                              //是否启用点击选中行
-            detailView: true,                                  //是否显示父子表
-            detailFormatter: 'detailFormatter',
-            pagination: true,                                  //是否显示分页
-            paginationLoop: false,
-            //queryParams:"",                                    //条件参数
->>>>>>> Stashed changes
             sidePagination: 'server',
             silentSort: false,
             smartDisplay: false,
