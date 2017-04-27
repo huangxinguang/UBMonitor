@@ -42,7 +42,7 @@
     </style>
 </head>
 <body>
-<form class="form-inline definewidth m20" action="${basePath}/optManage/findOptList" method="get">
+<form class="form-inline definewidth m20" action="" method="get">
     <%--系统编号：
     <select name="sysCode" id="sysCode">
        <option>PMS</option>
@@ -56,13 +56,13 @@
     </select><br><br>--%>
 
     <%--用户ID：--%>
-    <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号" value="${userId}">&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号">&nbsp;&nbsp;&nbsp;&nbsp;
 
     <%--请求路径：--%>
-    <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径" value="${reqUrl}">&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径">&nbsp;&nbsp;&nbsp;&nbsp;
 
     <%--会话ID：--%>
-    <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID" value="${sessionId}">&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID"&nbsp;&nbsp;&nbsp;&nbsp;
 
     <button type="button" onclick="reloadTable()" class="btn btn-primary">查询</button>
 </form>

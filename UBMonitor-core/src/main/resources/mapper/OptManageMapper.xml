@@ -84,7 +84,7 @@
 		FROM OPT_RECORD optr,OPT_ENVIRONMENT opte
 		WHERE optr.ENV_ID=opte.ID
 		<if test="userId!=null and userId!=''">
-			AND USER_ID=#{userId}
+			AND USER_ID LIKE CONCAT('%', #{userId}, '%')
 		</if>
 		<if test="sysCode!=null and sysCode!=''">
 			AND SYS_CODE=#{sysCode}
@@ -93,16 +93,16 @@
 			AND CHANNEL_CODE=#{channelCode}
 		</if>
 		<if test="terminalName!=null and terminalName!=''">
-			AND CHANNEL_CODE=#{terminalName}
+			AND TERMINAL_NAME=#{terminalName}
 		</if>
 		<if test="sessionId!=null and sessionId!=''">
-			AND CHANNEL_CODE=#{sessionId}
+			AND SESSION_ID LIKE CONCAT('%', #{sessionId}, '%')
 		</if>
 		<if test="reqUrl!=null and reqUrl!=''">
-			AND CHANNEL_CODE=#{reqUrl}
+			AND REQ_URL LIKE CONCAT('%', #{reqUrl}, '%')
 		</if>
 		<if test="sceneNo!=null and sceneNo!=''">
-			AND CHANNEL_CODE=#{sceneNo}
+			AND SCENE_NO=#{sceneNo}
 		</if>
 		ORDER BY USER_ID,OPT_TIME
 	</select>
