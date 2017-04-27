@@ -67,6 +67,12 @@ public class OptRecordController extends BaseController {
         if(offset != null) {
             pageNo = (offset/limit +1);
         }
+        if ("所有".equals(sysCode)) {
+            sysCode = "";
+        }
+        if ("所有".equals(channelName)) {
+            channelName = "";
+        }
         PageInfo<OptRecordAndEnvVO> pageInfo = optManageService.findOptRecordAndEnvListPage(pageNo,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,reqUrl,sceneNo);
         Map<String,Object> resultMap = new HashMap<>();
         resultMap.put("rows",pageInfo.getList());

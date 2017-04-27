@@ -43,17 +43,19 @@
 </head>
 <body>
 <form class="form-inline definewidth m20" action="" method="get">
-    <%--系统编号：
+    系统编号：
     <select name="sysCode" id="sysCode">
+       <option>所有</option>
        <option>PMS</option>
        <option>畅游通</option>
-    </select>&nbsp;&nbsp;&nbsp;&nbsp;.--%>
+    </select>&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <%--渠道名称：
+    渠道名称：
     <select name="channelName" id="channelName">
+       <option>所有</option>
        <option>九寨沟</option>
        <option>都江堰</option>
-    </select><br><br>--%>
+    </select><br><br>
 
     <%--用户ID：--%>
     <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号">&nbsp;&nbsp;&nbsp;&nbsp;
@@ -156,8 +158,8 @@
             var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
                 limit: params.limit,   //页面大小
                 offset: params.offset,  //页码
-                //sysCode: $("#sysCode").val(),
-                //channelName: $("#channelName").val(),
+                sysCode: $("#sysCode").val(),
+                channelName: $("#channelName").val(),
                 //terminalName: $("#terminalName").val(),
                 //sceneNo: $("#sceneNo").val(),
                 userId: $("#userId").val(),
