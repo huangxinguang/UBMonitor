@@ -92,10 +92,11 @@
                 minimumCountColumns: 2,
                 clickToSelect: true,
                 detailView: true,
-                detailFormatter: function(index, row, element) {
+               // detailFormatter:'detailFormatter',
+               detailFormatter: function(index, row) {
                     var html = '';
                     $.each(row, function(key, val){
-                        html += "<p>" + key + ":" + val +"</p>"
+                        html += "<p class='text-info'>" + key + ":" + val +"</p>"
                     });
                     return html;
                 },
