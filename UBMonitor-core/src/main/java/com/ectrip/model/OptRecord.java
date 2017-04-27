@@ -182,4 +182,25 @@ public class OptRecord {
     }
 
 
+    @Override
+    public String toString() {
+        return "OptRecord{" +
+                "id=" + id +
+                ", sysCode='" + sysCode + '\'' +
+                ", channelCode='" + channelCode + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", terminalName='" + terminalName + '\'' +
+                ", sessionId='" + sessionId + '\'' +
+                ", reqParams='" + reqParams + '\'' +
+                ", reqUrl='" + reqUrl + '\'' +
+                ", userId='" + userId + '\'' +
+                ", sceneNo='" + sceneNo + '\'' +
+                ", reqMethodName='" + reqMethodName + '\'' +
+                ", optBrief='" + optBrief + '\'' +
+                ", optTime='" + optTime + '\'' +
+                ", optDescription='" + optDescription + '\'' +
+                ", envId=" + envId +
+                ", optEnvironment=" + optEnvironment +
+                '}';
+    }
 }

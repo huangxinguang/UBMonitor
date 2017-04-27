@@ -1,7 +1,6 @@
 package com.ectrip.service;
 
 import com.ectrip.model.OptRecord;
-import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 
@@ -21,18 +20,12 @@ public interface OptManageService {
     void saveOptAndEnv(HttpServletRequest request,OptRecord optRecord);
 
     /**
-     * 查询
-     * @param pageNo
-     * @param userId
-     * @param sysCode
-     * @param channelCode
-     * @param terminalName
-     * @param sessionId
-     * @param reqUrl
-     * @param sceneNo
+     * 通过Id查询记录
+     * @param optId 操作id
      * @return
      */
-    Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
+    OptRecordAndEnvVO getOptDetail(Integer optId);
+
 
     /**
      * 按条件查询操作记录和环境

@@ -107,5 +107,48 @@
 		ORDER BY USER_ID,OPT_TIME
 	</select>
 
+	<!-- 查询单个详情-->
+	<select id="findOptDetail" resultMap="baseResultMap" parameterType="int">
+		SELECT optr.ID,
+		SYS_CODE,
+		CHANNEL_CODE,
+		CHANNEL_NAME,
+		TERMINAL_NAME,
+		SESSION_ID,
+		REQ_PARAMS,
+		REQ_URL,
+		USER_ID,
+		SCENE_NO,
+		REQ_METHOD_NAME,
+		OPT_BRIEF,
+		OPT_TIME,
+		OPT_DESCRIPTION,
+		opte.IP,
+		CLIENT_IP,
+		MAC,
+		IMEI,
+		OPERATORS,
+		MANUFACTURER,
+		PHONE_MODEL,
+		COMPUTER_NAME,
+		OS,
+		OS_VERSION,
+		RESOLUTION,
+		FONT,
+		FONT_SIZE,
+		BROWSER,
+		BROWSER_VERSION,
+		APP_NAME,
+		APP_TYPE,
+		APP_VERSION,
+		LONGITUDE,
+		LATITUDE,
+		INTERNET_TYPE,
+		IS_EMULATOR,
+		DEVICE_ID
+		FROM OPT_RECORD optr,OPT_ENVIRONMENT opte
+		WHERE opte.ID=#{optId}
+	</select>
+
 
 </mapper>

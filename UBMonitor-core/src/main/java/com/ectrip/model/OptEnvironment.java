@@ -234,4 +234,35 @@ public class OptEnvironment {
     public void setOptRecordList(List<OptRecord> optRecordList) {
         this.optRecordList = optRecordList;
     }
+
+    @Override
+    public String toString() {
+        return "OptEnvironment{" +
+                "id=" + id +
+                ", ip='" + ip + '\'' +
+                ", clientIp='" + clientIp + '\'' +
+                ", mac='" + mac + '\'' +
+                ", imei='" + imei + '\'' +
+                ", operators='" + operators + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", phoneModel='" + phoneModel + '\'' +
+                ", computerName='" + computerName + '\'' +
+                ", os='" + os + '\'' +
+                ", osVersion='" + osVersion + '\'' +
+                ", resolution='" + resolution + '\'' +
+                ", font='" + font + '\'' +
+                ", fontSize='" + fontSize + '\'' +
+                ", browser='" + browser + '\'' +
+                ", browserVersion='" + browserVersion + '\'' +
+                ", appName='" + appName + '\'' +
+                ", appType='" + appType + '\'' +
+                ", appVersion='" + appVersion + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", internetType='" + internetType + '\'' +
+                ", isEmulator='" + isEmulator + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                ", optRecordList=" + optRecordList +
+                '}';
+    }
 }

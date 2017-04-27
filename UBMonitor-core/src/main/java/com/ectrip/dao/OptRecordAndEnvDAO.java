@@ -1,6 +1,5 @@
 package com.ectrip.dao;
 
-import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import org.apache.ibatis.annotations.Param;
 
@@ -12,21 +11,6 @@ import java.util.List;
  * Desc:
  */
 public interface OptRecordAndEnvDAO {
-    /**
-     * 按条件查询操作记录和环境
-     * @param userId
-     * @param sysCode
-     * @param channelCode
-     * @param terminalName
-     * @param sessionId
-     * @param reqUrl
-     * @param sceneNo
-     * @return
-     */
-    List<OptRecordAndEnvVO> findOptRecordListPage(@Param("page") Page page, @Param("userId") String userId, @Param("sysCode") String sysCode, @Param("channelCode") String channelCode,
-                                              @Param("terminalName") String terminalName, @Param("sessionId")String sessionId, @Param("reqUrl")String reqUrl, @Param("sceneNo")String sceneNo);
-
-
     /**
      * 按条件查询操作记录和环境
      * @param pageNo 当前页号
@@ -45,9 +29,9 @@ public interface OptRecordAndEnvDAO {
 
     /**
      * 通过Id查询记录
-     * @param id
+     * @param optId
      * @return
      */
-    OptRecordAndEnvVO getOptRecordAndEnv(Integer id);
+    OptRecordAndEnvVO getOptDetail(Integer optId);
 }
 

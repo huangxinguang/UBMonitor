@@ -7,8 +7,6 @@ import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
 import com.ectrip.utils.MyUserAgentUtil;
-import com.ectrip.utils.NetUtil;
-import com.ectrip.utils.Page;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 import eu.bitwalker.useragentutils.*;
@@ -50,9 +48,9 @@ public class OptManageServiceImpl implements OptManageService {
                 String sessionId = request.getRequestedSessionId();
                 String operators = request.getRemoteUser();
                 String ip = request.getRemoteAddr();
-                //String clientIp = NetUtil.getIpAddr(request);
+                //String clientIp = WebUtil.getIpAddr(request);
                 String queryParams = request.getQueryString();
-                //String mac = NetUtil.getMACAddress(ip);
+                //String mac = WebUtil.getMACAddress(ip);
 
                 //解析user-agent
                 String userAgent = request.getHeader("User-Agent");
@@ -84,40 +82,32 @@ public class OptManageServiceImpl implements OptManageService {
                     env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
                 }
                 try {
+                    logger.info("操作环境:"+env.toString());
                     optEnvironmentDAO.save(env);
 
                     //组装用户操作
                     optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
                     optRecord.setTerminalName(operatingSystem.getName());
+                    logger.info("操作数据:"+optRecord.toString());
                     optRecordDAO.save(optRecord);
 
                 } catch (Exception e) {
-                    logger.info("保存记录异常",e);
+                    logger.info("保存记录异常,操作环境：{},操作数据:{}",env.toString(),optRecord.toString(),e);
                     e.printStackTrace();
                 }
             }
         });
     }
 
-    public Page<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
-        Page page = new Page();
-        if(pageNo != null) {
-            page.setCurrentPage(pageNo);
-        }
-        try {
-            List<OptRecordAndEnvVO> optRecordAndEnvVOList = optRecordAndEnvDAO.findOptRecordListPage(page, userId, sysCode, channelCode, terminalName, sessionId, reqUrl, sceneNo);
-            page.setDataList(optRecordAndEnvVOList);
-        }catch (Exception e) {
-            logger.info("查询记录异常",e);
-            e.printStackTrace();
-        }
-        return page;
-    }
-
     @Override
     public PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
         List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(pageNo,pageSize,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
         return new PageInfo<>(list);
+    }
+
+    @Override
+    public OptRecordAndEnvVO getOptDetail(Integer optId) {
+        return optRecordAndEnvDAO.getOptDetail(optId);
     }
 }

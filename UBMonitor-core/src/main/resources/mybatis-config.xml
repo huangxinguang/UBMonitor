@@ -16,14 +16,9 @@
 		<typeAlias type="com.ectrip.model.OptEnvironment" alias="OptEnvironment"/>
 		<typeAlias type="com.ectrip.vo.OptRecordAndEnvVO" alias="OptRecordAndEnvVO"/>
 		<typeAlias type="com.ectrip.model.OptRecord" alias="OptRecord"/>
-		<typeAlias type="com.ectrip.utils.Page" alias="Page"/>
 	</typeAliases>
 	<!--分页插件和数据库方言-->
 	<plugins>
-		<!--<plugin interceptor="com.ectrip.plugin.PagePlugin">
-			<property name="dialect" value="MySQL"/>
-			<property name="pageSqlId" value=".*ListPage"/>
-		</plugin>-->
 
 		<!-- 使用PageHelper 插件-->
 		<plugin interceptor="com.github.pagehelper.PageInterceptor">

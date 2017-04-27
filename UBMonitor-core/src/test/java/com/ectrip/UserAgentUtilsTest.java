@@ -1,7 +1,5 @@
 package com.ectrip;
 
-import com.ectrip.utils.MyUserAgentUtil;
-import com.ectrip.utils.NetUtil;
 import eu.bitwalker.useragentutils.UserAgent;
 import org.junit.Test;
 

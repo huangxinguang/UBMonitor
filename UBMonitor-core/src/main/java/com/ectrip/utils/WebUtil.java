@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  * </p>
  * Desc:
  */
-public class NetUtil {
+public class WebUtil {
     /**
      * 通过HttpServletRequest返回IP地址
      * @param request HttpServletRequest
