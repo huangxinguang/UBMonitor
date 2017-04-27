@@ -42,8 +42,17 @@ public class OptRecordController extends BaseController {
 
     @ApiOperation(value="监控记录页面",notes = "跳转到操作监控记录页面")
     @RequestMapping(value = "/findOptList",method = RequestMethod.GET)
-    public ModelAndView optRecordPage() {
+    public ModelAndView optRecordPage(String sysCode,String userId,String sessionId,String reqUrl) {
         ModelAndView mav = getModelAndView();
+
+        mav.addObject("sysCode", sysCode);
+       /* mav.addObject("channelName", channelName);
+        mav.addObject("terminalName", terminalName);
+        mav.addObject("sceneNo", sceneNo);*/
+        mav.addObject("userId", userId);
+        mav.addObject("sessionId", sessionId);
+        mav.addObject("reqUrl", reqUrl);
+
         mav.setViewName("record/optList");
         return mav;
     }
