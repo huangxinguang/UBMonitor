@@ -23,7 +23,7 @@ public class PageHelperTest {
 
     @Test
     public void testQueryPage() {
-        List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(1,10,null,null,null,null,null,null,null);
+        List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(1,10,null,null,null,null,null,null,null,null);
         PageInfo<OptRecordAndEnvVO> pageInfo = new PageInfo<OptRecordAndEnvVO>(list);
     }
 }
