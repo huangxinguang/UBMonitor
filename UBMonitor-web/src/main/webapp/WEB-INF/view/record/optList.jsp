@@ -45,14 +45,14 @@
 <form class="form-inline definewidth m20" action="" method="get">
     系统编号：
     <select name="sysCode" id="sysCode">
-       <option value="-1">所有</option>
-       <option value="0">PMS</option>
-       <option value="1">畅游通</option>
+       <option value="">所有</option>
+       <option value="pms">PMS</option>
+       <option value="cyt">畅游通</option>
     </select>&nbsp;&nbsp;&nbsp;&nbsp;
 
     渠道名称：
     <select name="channelCode" id="channelCode">
-       <option value="-1">所有</option>
+       <option value="">所有</option>
        <option value="502">九寨沟</option>
        <option value="520">青都</option>
     </select><br><br>
@@ -95,7 +95,7 @@
                 detailFormatter: function(index, row, element) {
                     var html = '';
                     $.each(row, function(key, val){
-                        html += "<p>" + key + ":" + val +  "</p>"
+                        html += "<p>" + key + ":" + val +"</p>"
                     });
                     return html;
                 },
