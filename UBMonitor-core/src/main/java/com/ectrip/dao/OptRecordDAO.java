@@ -9,5 +9,6 @@ import com.ectrip.model.OptRecord;
  */
 public interface OptRecordDAO {
 
-    public void save(OptRecord optRecord);
+    void save(OptRecord optRecord);
+
 }
