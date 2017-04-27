@@ -43,30 +43,32 @@
 </head>
 <body>
 <form class="form-inline definewidth m20" action="" method="get">
-    系统编号：
-    <select name="sysCode" id="sysCode">
-       <option value="">所有</option>
-       <option value="pms">PMS</option>
-       <option value="cyt">畅游通</option>
-    </select>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="form-group">
+        <label for="sysCode">系统编号：</label>
+        <select name="sysCode" id="sysCode" class="form-control">
+           <option value="">所有</option>
+           <option value="pms">PMS</option>
+           <option value="cyt">畅游通</option>
+        </select>&nbsp;&nbsp;&nbsp;&nbsp;
 
-    渠道名称：
-    <select name="channelCode" id="channelCode">
-       <option value="">所有</option>
-       <option value="502">九寨沟</option>
-       <option value="520">青都</option>
-    </select><br><br>
+        <label for="channelCode">渠道名称：</label>
+        <select name="channelCode" id="channelCode" class="form-control">
+           <option value="">所有</option>
+           <option value="502">九寨沟</option>
+           <option value="520">青都</option>
+        </select><br><br>
 
-    <%--用户ID：--%>
-    <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号">&nbsp;&nbsp;&nbsp;&nbsp;
+        <%--用户ID：--%>
+        <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号">&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <%--请求路径：--%>
-    <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径">&nbsp;&nbsp;&nbsp;&nbsp;
+        <%--请求路径：--%>
+        <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径">&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <%--会话ID：--%>
-    <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID">&nbsp;&nbsp;&nbsp;&nbsp;
+        <%--会话ID：--%>
+        <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID">&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <button type="button" onclick="reloadTable()" class="btn btn-primary">查询</button>
+        <button type="button" onclick="reloadTable()" class="btn btn-primary">查询</button>
+    </div>
 </form>
 <table id="table"></table>
 </body>
