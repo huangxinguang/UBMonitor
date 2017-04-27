@@ -64,7 +64,7 @@
     <%--会话ID：--%>
     <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID" value="${sessionId}">&nbsp;&nbsp;&nbsp;&nbsp;
 
-    <button type="submit" class="btn btn-primary">查询</button>
+    <button type="button" onclick="reloadTable()" class="btn btn-primary">查询</button>
 </form>
 <table id="table"></table>
 </body>
@@ -160,5 +160,9 @@
             };
             return temp;
         };
+
+        function reloadTable() {
+            $table.bootstrapTable('refresh');
+        }
 
 </script>
