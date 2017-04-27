@@ -44,15 +44,6 @@ public class OptRecordController extends BaseController {
     @RequestMapping(value = "/findOptList",method = RequestMethod.GET)
     public ModelAndView optRecordPage(String sysCode,String userId,String sessionId,String reqUrl) {
         ModelAndView mav = getModelAndView();
-
-        mav.addObject("sysCode", sysCode);
-       /* mav.addObject("channelName", channelName);
-        mav.addObject("terminalName", terminalName);
-        mav.addObject("sceneNo", sceneNo);*/
-        mav.addObject("userId", userId);
-        mav.addObject("sessionId", sessionId);
-        mav.addObject("reqUrl", reqUrl);
-
         mav.setViewName("record/optList");
         return mav;
     }
@@ -76,7 +67,7 @@ public class OptRecordController extends BaseController {
         if(offset != null) {
             pageNo = (offset/limit +1);
         }
-        PageInfo<OptRecordAndEnvVO> pageInfo = optManageService.findOptRecordAndEnvListPage(pageNo,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,sceneNo);
+        PageInfo<OptRecordAndEnvVO> pageInfo = optManageService.findOptRecordAndEnvListPage(pageNo,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,reqUrl,sceneNo);
         Map<String,Object> resultMap = new HashMap<>();
         resultMap.put("rows",pageInfo.getList());
         resultMap.put("total",pageInfo.getTotal());

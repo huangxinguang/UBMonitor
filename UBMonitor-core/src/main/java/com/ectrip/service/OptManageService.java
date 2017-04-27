@@ -40,5 +40,5 @@ public interface OptManageService {
      * @param sceneNo 场景编号
      * @return
      */
-    PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize,String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo);
+    PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize,String userId, String sysCode, String channelCode,String channelName, String terminalName, String sessionId, String reqUrl, String sceneNo);
 }

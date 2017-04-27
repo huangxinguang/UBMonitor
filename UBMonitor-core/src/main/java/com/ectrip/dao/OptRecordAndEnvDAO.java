@@ -25,7 +25,7 @@ public interface OptRecordAndEnvDAO {
      * @return
      */
     List<OptRecordAndEnvVO> findOptRecordListPage(@Param("pageNo") Integer pageNo, @Param("pageSize") Integer pageSize, @Param("userId") String userId, @Param("sysCode") String sysCode, @Param("channelCode") String channelCode,
-                                                  @Param("terminalName") String terminalName, @Param("sessionId")String sessionId, @Param("reqUrl")String reqUrl, @Param("sceneNo")String sceneNo);
+                                                  @Param("channelName") String channelName,@Param("terminalName") String terminalName, @Param("sessionId")String sessionId, @Param("reqUrl")String reqUrl, @Param("sceneNo")String sceneNo);
 
     /**
      * 通过Id查询记录

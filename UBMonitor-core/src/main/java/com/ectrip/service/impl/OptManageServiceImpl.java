@@ -104,8 +104,8 @@ public class OptManageServiceImpl implements OptManageService {
     }
 
     @Override
-    public PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize, String userId, String sysCode, String channelCode, String terminalName, String sessionId, String reqUrl, String sceneNo) {
-        List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(pageNo,pageSize,userId,sysCode,channelCode,terminalName,sessionId,reqUrl,sceneNo);
+    public PageInfo<OptRecordAndEnvVO> findOptRecordAndEnvListPage(Integer pageNo, Integer pageSize, String userId, String sysCode, String channelCode,String channelName, String terminalName, String sessionId, String reqUrl, String sceneNo) {
+        List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(pageNo,pageSize,userId,sysCode,channelCode,channelName,terminalName,sessionId,reqUrl,sceneNo);
         return new PageInfo<>(list);
     }
 
