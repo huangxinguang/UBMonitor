@@ -62,7 +62,7 @@
     <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径">&nbsp;&nbsp;&nbsp;&nbsp;
 
     <%--会话ID：--%>
-    <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID"&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID">&nbsp;&nbsp;&nbsp;&nbsp;
 
     <button type="button" onclick="reloadTable()" class="btn btn-primary">查询</button>
 </form>
