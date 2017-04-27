@@ -42,35 +42,56 @@
     </style>
 </head>
 <body>
-<form class="form-inline definewidth m20" action="index.html" method="get">
-    用户名称：
-    <input type="text" name="username" id="username"class="abc input-default" placeholder="" value="">&nbsp;&nbsp;
-    <button type="submit" class="btn btn-primary">查询</button>&nbsp;&nbsp; <button type="button" class="btn btn-success" id="addnew">新增用户</button>
+<form class="form-inline definewidth m20" action="${basePath}/optManage/findOptRecordList" method="get">
+     <%--系统编号：
+     <select name="sysCode" id="sysCode">
+        <option>PMS</option>
+        <option>畅游通</option>
+     </select>&nbsp;&nbsp;&nbsp;&nbsp;.--%>
+
+     <%--渠道名称：
+     <select name="channelName" id="channelName">
+        <option>九寨沟</option>
+        <option>都江堰</option>
+     </select><br><br>--%>
+
+     <%--用户ID：--%>
+     <input type="text" name="userId" id="userId"class="abc input-default" placeholder="这里输入用户编号" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <%--请求路径：--%>
+     <input type="text" name="reqUrl" id="reqUrl"class="abc input-default" placeholder="这里输入请求路径" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <%--会话ID：--%>
+     <input type="text" name="sessionId" id="sessionId"class="abc input-default" placeholder="这里输入会话ID" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <button type="button" onclick="oTableInit.Init" class="btn btn-primary">查询</button>
 </form>
 <table id="table"></table>
 </body>
 </html>
 <script>
+    var oTableInit = new Object();
     var $table = $('#table');
-    $(function() {
+    oTableInit.Init = $(function() {
         // bootstrap table初始化
         $table.bootstrapTable({
             method:"get",
-            url: '${basePath}/optManage/findOptRecordList', //请求后台的URL（*）
+            url: '${basePath}/optManage/findOptRecordList',
             //data:'${basePath}/data.json',
-            striped: true, //是否显示行间隔色
-            search: false,//是否启用搜索
+            queryParams:oTableInit.queryParams,
+            striped: true,
+            search: false,
             cache:false,
             dataType:'json',
-            showRefresh: true,//是否显示刷新
-            showColumns: true,//显示下拉框勾选要显示的列
+            showRefresh: true,
+            showColumns: true,
             showToggle:true,
             showPaginationSwitch:true,
-            minimumCountColumns: 2,//最少允许的列数
+            minimumCountColumns: 2,
             clickToSelect: true,
-            detailView: true,//是否显示父子表
+            detailView: true,
         /*    detailFormatter: 'detailFormatter',*/
-            pagination: true,//是否显示分页
+            pagination: true,
             pageNumber:1,
             pageSize:10,
             paginationLoop: false,
@@ -88,10 +109,10 @@
                 {field: 'id', title:'编号'},
                 {field: 'sysCode', title: '系统编号'},
                 {field: 'channelCode', title: '渠道编号'},
-                {field: 'channelName', title: '渠道编号'},
-                {field: 'terminalName', title: '渠道编号'},
-                {field: 'sessionId', title: '回话id'},
-                {field: 'reqParams', title: '终端'},
+                {field: 'channelName', title: '渠道名称'},
+                {field: 'terminalName', title: '终端'},
+                {field: 'sessionId', title: '会话id'},
+                {field: 'reqParams', title: '请求参数'},
                 {field: 'reqUrl', title: '请求URL'},
                 {field: 'userId', title: '用户编号'},
                 {field: 'sceneNo', title: '场景号'},
@@ -125,4 +146,15 @@
             ]
         });
     });
+    oTableInit.queryParams = function (params) {
+        var temp = {   //这里的键的名字和控制器的变量名必须一直，这边改动，控制器也需要改成一样的
+            limit: params.limit,   //页面大小
+            offset: params.offset,  //页码
+            sysCode: $("#sysCode").val(),
+            userId: $("#userId").val(),
+            sessionId: $("#sessionId").val(),
+            reqUrl: $("#reqUrl").val()
+        };
+        return temp;
+    };
 </script>
