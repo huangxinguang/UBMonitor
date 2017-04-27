@@ -6,6 +6,7 @@ import com.ectrip.dao.OptRecordDAO;
 import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
+import com.ectrip.utils.DateUtil;
 import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
@@ -17,6 +18,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -88,6 +90,7 @@ public class OptManageServiceImpl implements OptManageService {
                     //组装用户操作
                     optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
+                    optRecord.setOptTime(DateUtil.getDateTime(new Date()));
                     optRecord.setTerminalName(operatingSystem.getName());
                     logger.info("操作数据:"+optRecord.toString());
                     optRecordDAO.save(optRecord);
