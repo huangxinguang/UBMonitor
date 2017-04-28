@@ -49,7 +49,7 @@ public class OptRecordController extends BaseController {
             @ApiImplicitParam(name = "optDesc", value = "操作详情", required = true, dataType = "String")
     })
     @ResponseBody
-    @RequestMapping(value = "/doOperate",method = {RequestMethod.GET,RequestMethod.POST})
+    @RequestMapping(value = "/doOperate",method = RequestMethod.GET)
     public Object doOperate(HttpServletRequest request,String remoteUser,String remoteIp,String sessionId,String userAgent, String reqUrl,
                                         String reqAction,String reqParams,String sceneNo,String userId,String sysCode,String channelCode,String optBrief,String optDesc) {
         try {
