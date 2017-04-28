@@ -1,14 +1,12 @@
 package com.ectrip.controller;
 
 import com.ectrip.common.BaseResult;
-import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
-import org.omg.CORBA.OBJECT_NOT_EXIST;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +47,7 @@ public class OptRecordController extends BaseController {
             @ApiImplicitParam(name = "optDesc", value = "操作详情", required = true, dataType = "String")
     })
     @ResponseBody
-    @RequestMapping(value = "/doOperate",method = RequestMethod.GET)
+    @RequestMapping(value = "/doOperate",method = RequestMethod.POST)
     public Object doOperate(HttpServletRequest request,String remoteUser,String remoteIp,String sessionId,String userAgent, String reqUrl,
                                         String reqAction,String reqParams,String sceneNo,String userId,String sysCode,String channelCode,String optBrief,String optDesc) {
         try {
