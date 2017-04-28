@@ -39,8 +39,6 @@ public class OptRecord {
 
     private Integer envId;          //操作环境编号
 
-    private OptEnvironment optEnvironment;//用户操作环境对象
-
     public Integer getId() {
         return id;
     }
@@ -162,15 +160,6 @@ public class OptRecord {
         this.envId = envId;
     }
 
-    public OptEnvironment getOptEnvironment() {
-        return optEnvironment;
-    }
-
-    public void setOptEnvironment(OptEnvironment optEnvironment) {
-        this.optEnvironment = optEnvironment;
-    }
-
-
     @Override
     public String toString() {
         return "OptRecord{" +
@@ -189,7 +178,6 @@ public class OptRecord {
                 ", optTime='" + optTime + '\'' +
                 ", optDescription='" + optDescription + '\'' +
                 ", envId=" + envId +
-                ", optEnvironment=" + optEnvironment +
                 '}';
     }
 }

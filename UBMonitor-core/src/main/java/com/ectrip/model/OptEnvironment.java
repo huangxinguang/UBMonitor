@@ -33,8 +33,6 @@ public class OptEnvironment {
     private String isEmulator;      //是否虚拟机
     private String deviceId;        //设备ID
 
-    private List<OptRecord> optRecordList;//用户行为操作记录列表
-
     public Integer getId() {
         return id;
     }
@@ -227,14 +225,6 @@ public class OptEnvironment {
         this.deviceId = deviceId;
     }
 
-    public List<OptRecord> getOptRecordList() {
-        return optRecordList;
-    }
-
-    public void setOptRecordList(List<OptRecord> optRecordList) {
-        this.optRecordList = optRecordList;
-    }
-
     @Override
     public String toString() {
         return "OptEnvironment{" +
@@ -262,7 +252,6 @@ public class OptEnvironment {
                 ", internetType='" + internetType + '\'' +
                 ", isEmulator='" + isEmulator + '\'' +
                 ", deviceId='" + deviceId + '\'' +
-                ", optRecordList=" + optRecordList +
                 '}';
     }
 }

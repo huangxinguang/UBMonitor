@@ -83,7 +83,7 @@ public class OptRecordController extends BaseController {
     })
     @ResponseBody
     @RequestMapping(value = "/findOptRecordList",method = RequestMethod.GET)
-    public Object findOptRecordList(Integer offset,Integer limit,String order,String userId,String sysCode,String channelCode,String channelName,String terminalName,String sessionId,String reqUrl,String sceneNo) {
+    public Object findOptRecordList(Integer offset,Integer limit,String userId,String sysCode,String channelCode,String channelName,String terminalName,String sessionId,String reqUrl,String sceneNo) {
         int pageNo = 1;
         if(offset != null) {
             pageNo = (offset/limit +1);
