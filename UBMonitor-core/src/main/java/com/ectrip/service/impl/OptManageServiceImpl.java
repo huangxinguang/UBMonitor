@@ -44,31 +44,23 @@ public class OptManageServiceImpl implements OptManageService {
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
 
 
-    public void saveOptAndEnv(final HttpServletRequest request, final OptRecord optRecord) {
+    public void saveOptAndEnv(final HttpServletRequest request,final String remoteUser,final String remoteIp,final String sessionId,final String userAgent, final String reqUrl,
+                                final String reqAction,final String reqParams,final String sceneNo,final String userId,final String sysCode,final String channelCode,final String optBrief,final String optDesc) {
         threadPoolTaskExecutor.execute(new Runnable() {
             public void run() {
-                String sessionId = request.getRequestedSessionId();
-                String operators = request.getRemoteUser();
-                String ip = request.getRemoteAddr();
-                //String clientIp = WebUtil.getIpAddr(request);
-                String queryParams = request.getQueryString();
-                //String mac = WebUtil.getMACAddress(ip);
-
-                //解析user-agent
-                String userAgent = request.getHeader("User-Agent");
+                /** 解析userAgent*/
                 UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
                 Browser browser = userAgentInfo.getBrowser();//拿到浏览器信息
-                BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();
+                BrowserType browserType = userAgentInfo.getBrowser().getBrowserType();//浏览类型
                 Version version = userAgentInfo.getBrowserVersion();//浏览器版本信息
                 OperatingSystem operatingSystem = userAgentInfo.getOperatingSystem();//操作系统信息
 
-                //组装envionment
+                /**组装envionment*/
                 OptEnvironment env = new OptEnvironment();
-                env.setIp(ip);
-                //env.setClientIp(clientIp);
-                //env.setMac(mac);
+                env.setIp(request.getRemoteAddr());
+                env.setClientIp((remoteIp));
                 env.setComputerName(operatingSystem.getDeviceType().getName());
-                env.setOperators(operators);
+                env.setOperators(remoteUser);
                 env.setBrowser(browser.getName());
                 env.setBrowserVersion(version.getVersion());
                 env.setOs(operatingSystem.getName());
@@ -83,15 +75,26 @@ public class OptManageServiceImpl implements OptManageService {
                     env.setAppType(operatingSystem.getDeviceType().getName());
                     env.setAppVersion(userAgentInfo.getBrowserVersion().getVersion());
                 }
+
+                OptRecord optRecord = new OptRecord();
                 try {
                     logger.info("操作环境:{}",env.toString());
                     optEnvironmentDAO.save(env);
 
-                    //组装用户操作
+                    /**组装用户操作记录*/
                     optRecord.setSessionId(sessionId);
                     optRecord.setEnvId(env.getId());
                     optRecord.setOptTime(DateUtil.getDateTime(new Date()));
                     optRecord.setTerminalName(operatingSystem.getName());
+                    optRecord.setChannelCode(channelCode);
+                    optRecord.setSysCode(sysCode);
+                    optRecord.setOptBrief(optBrief);
+                    optRecord.setOptDescription(optDesc);
+                    optRecord.setReqMethodName(reqAction);
+                    optRecord.setReqParams(reqParams);
+                    optRecord.setReqUrl(reqUrl);
+                    optRecord.setSceneNo(sceneNo);
+
                     logger.info("操作数据:{}",optRecord.toString());
                     optRecordDAO.save(optRecord);
 

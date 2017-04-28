@@ -21,6 +21,9 @@ public class PageHelperTest {
     @Autowired
     private OptRecordAndEnvDAO optRecordAndEnvDAO;
 
+    /**
+     * 测试分页 PageHelper
+     */
     @Test
     public void testQueryPage() {
         List<OptRecordAndEnvVO> list = optRecordAndEnvDAO.findOptRecordListPage(1,10,null,null,null,null,null,null,null,null);
