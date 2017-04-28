@@ -64,7 +64,7 @@ public class OptRecordController extends BaseController {
 
 
     @ApiOperation(value="监控记录页面",notes = "跳转到操作监控记录页面")
-    @RequestMapping(value = "/findOptList",method = RequestMethod.GET)
+    @RequestMapping(value = "/optRecordPage",method = RequestMethod.GET)
     public ModelAndView optRecordPage() {
         ModelAndView mav = getModelAndView();
         mav.setViewName("record/optList");
