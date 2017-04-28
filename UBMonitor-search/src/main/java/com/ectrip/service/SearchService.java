@@ -1,5 +1,6 @@
 package com.ectrip.service;
 
+import com.ectrip.common.SearchResult;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 
@@ -21,5 +22,5 @@ public interface SearchService {
      * @param sceneNo 场景编号
      * @return
      */
-    PageInfo<OptRecordAndEnvVO> searchOptRecordList(Integer offset, Integer limit, String userId, String sysCode, String channelCode, String channelName, String terminalName, String sessionId, String reqUrl, String sceneNo);
+    SearchResult searchOptRecordList(Integer offset, Integer limit, String userId, String sysCode, String channelCode, String channelName, String terminalName, String sessionId, String reqUrl, String sceneNo);
 }
