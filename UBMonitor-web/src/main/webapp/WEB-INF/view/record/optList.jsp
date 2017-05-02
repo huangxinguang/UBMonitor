@@ -90,18 +90,12 @@
                 showRefresh: true,
                 showColumns: true,
                 showToggle:true,
-                showPaginationSwitch:true,
+                showPaginationSwitch:false,
                 minimumCountColumns: 2,
                 clickToSelect: true,
                 detailView: true,
                // detailFormatter:'detailFormatter',
-               detailFormatter: function(index, row) {
-                    var html = '';
-                    $.each(row, function(key, val){
-                        html += "<p class='text-info'>" + key + ":" + val +"</p>"
-                    });
-                    return html;
-                },
+               detailFormatter: dataformatobj,
                 pagination: true,
                 pageNumber:1,
                 pageSize:10,
@@ -172,8 +166,97 @@
             return temp;
         };
 
+
+
         function reloadTable() {
             $table.bootstrapTable('refresh');
+        }
+
+
+        var dataformatobj = function(index, row) {
+            var html = '';
+            $.each(row, function(key, val){
+                var name = null;
+                switch(key) {
+                    case "id":
+                        name="编号";break;
+                    case "sysCode":
+                        name="系统编号";break;
+                    case "channelCode":
+                        name="渠道编号";break;
+                    case "channelName":
+                        name="渠道名称";break;
+                    case "terminalName":
+                        name="终端名称";break;
+                    case "sessionId":
+                        name="回话id";break;
+                    case "reqParams":
+                        name="请求参数";break;
+                    case "reqUrl":
+                        name="请求路径";break;
+                    case "userId":
+                        name="用户编号";break;
+                    case "sceneNo":
+                        name="场景编号";break;
+                    case "reqMethodName":
+                        name="请求动作";break;
+                    case "optBrief":
+                        name="操作简介";
+                    case "optTime":
+                        name="操作时间";break;
+                    case "id":
+                        name="编号";break;
+                    case "optDescription":
+                        name="操作描述";break;
+                    case "ip":
+                        name="IP地址";break;
+                    case "mac":
+                        name="物理地址";break;
+                    case "clientIp":
+                        name="请求ip";break;
+                    case "imei":
+                        name="imei";break;
+                    case "operators":
+                        name="系统用户";break;
+                    case "manufacturer":
+                        name="提供商";break;
+                    case "phoneModel":
+                        name="手机类型";break;
+                    case "computerName":
+                        name="电脑名称";break;
+                    case "os":
+                        name="操作系统";break;
+                    case "osVersion":
+                        name="操作系统版本";break;
+                    case "resolution":
+                        name="布局";break;
+                    case "font":
+                        name="字体";break;
+                    case "fontSize":
+                        name="字体大小";break;
+                    case "browser":
+                        name="浏览器";break;
+                    case "browserVersion":
+                        name="浏览器版本";break;
+                    case "appName":
+                        name="app名称";break;
+                    case "appVersion":
+                        name="app版本";break;
+                    case "longitude":
+                        name="经度";break;
+                    case "latitude":
+                        name="纬度";break;
+                    case "internetType":
+                        name="网络类型";break;
+                    case "isEmulator":
+                        name="是否是虚拟机";break;
+                    case "deviceId":
+                        name="设备ID";break;
+                }
+
+                html += "<p class='text-info'>" + name + ":" + val +"</p>"
+            });
+            return html;
         }
 
 </script>

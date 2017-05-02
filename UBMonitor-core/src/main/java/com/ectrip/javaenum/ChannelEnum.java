@@ -14,6 +14,15 @@ public enum ChannelEnum {
         this.name = name;
     }
 
+    public static ChannelEnum forCode(String code) {
+        for(ChannelEnum ce:ChannelEnum.values()) {
+            if(ce.getCode().equals(code)) {
+                return ce;
+            }
+        }
+        return null;
+    }
+
     public String getCode() {
         return code;
     }

@@ -3,6 +3,7 @@ package com.ectrip;
 import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.utils.WebUtil;
 import eu.bitwalker.useragentutils.UserAgent;
+import eu.bitwalker.useragentutils.Version;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,8 +22,9 @@ public class UserAgentUtilsTest {
      */
     @Test
     public void testUserAgentUtils() {
-        String userAgent = "Huawei U8800    Android 2.3.3   Baidu 2.3   Mozilla/5.0 (Linux; U; Android 2.3.5; zh-cn; U8800 Build/HuaweiU8800) AppleWebKit/530.17 (KHTML, like Gecko)";
+        String userAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/56.0.2924.87 Safari/537.36";
         UserAgent userAgentInfo = UserAgent.parseUserAgentString(userAgent);
+        Version version = userAgentInfo.getBrowserVersion();
         Assert.assertNotNull(userAgentInfo);
     }
 

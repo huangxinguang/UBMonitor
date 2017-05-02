@@ -3,8 +3,6 @@ package com.ectrip.service.impl;
 import com.ectrip.common.SearchResult;
 import com.ectrip.service.SearchService;
 import com.ectrip.vo.OptRecordAndEnvVO;
-import com.github.pagehelper.PageInfo;
-import org.apache.solr.client.solrj.SolrQuery;
 import org.apache.solr.client.solrj.impl.HttpSolrServer;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
@@ -44,25 +42,25 @@ public class SearchServiceImpl implements SearchService {
             solrParams.add("fq", "sysCode:"+sysCode);
         }
         if(!StringUtils.isEmpty(userId)) {
-           solrParams.add("fq", "userId:"+userId);
+           solrParams.add("fq", "userId:*"+userId+"*");
         }
         if(!StringUtils.isEmpty(userId)) {
             solrParams.add("fq", "channelCode:"+channelCode);
         }
         if(!StringUtils.isEmpty(channelName)) {
-            solrParams.add("fq", "channelName:"+channelName);
+            solrParams.add("fq", "channelName:*"+channelName+"*");
         }
         if(!StringUtils.isEmpty(terminalName)) {
-            solrParams.add("fq", "terminalName:"+terminalName);
+            solrParams.add("fq", "terminalName:*"+terminalName+"*");
         }
         if(!StringUtils.isEmpty(sessionId)) {
-            solrParams.add("fq", "sessionId:"+sessionId);
+            solrParams.add("fq", "sessionId:*"+sessionId+"*");
         }
         if(!StringUtils.isEmpty(reqUrl)) {
-            solrParams.add("fq", "reqUrl:"+reqUrl);
+            solrParams.add("fq", "reqUrl:*"+reqUrl+"*");
         }
         if(!StringUtils.isEmpty(sceneNo)) {
-            solrParams.add("fq", "sceneNo:"+sceneNo);
+            solrParams.add("fq", "sceneNo:*"+sceneNo+"*");
         }
 
 

@@ -3,6 +3,7 @@ package com.ectrip.service.impl;
 import com.ectrip.dao.OptEnvironmentDAO;
 import com.ectrip.dao.OptRecordAndEnvDAO;
 import com.ectrip.dao.OptRecordDAO;
+import com.ectrip.javaenum.ChannelEnum;
 import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.service.OptManageService;
@@ -62,7 +63,9 @@ public class OptManageServiceImpl implements OptManageService {
                 env.setComputerName(operatingSystem.getDeviceType().getName());
                 env.setOperators(remoteUser);
                 env.setBrowser(browser.getName());
-                env.setBrowserVersion(version.getVersion());
+                if(version != null) {
+                    env.setBrowserVersion(version.getVersion());
+                }
                 env.setOs(operatingSystem.getName());
                 env.setOsVersion(operatingSystem.getDeviceType().getName());
                 env.setManufacturer(operatingSystem.getManufacturer().getName());
@@ -87,10 +90,12 @@ public class OptManageServiceImpl implements OptManageService {
                     optRecord.setOptTime(DateUtil.getDateTime(new Date()));
                     optRecord.setTerminalName(operatingSystem.getName());
                     optRecord.setChannelCode(channelCode);
+                    optRecord.setChannelName(ChannelEnum.forCode(channelCode).getName());
                     optRecord.setSysCode(sysCode);
                     optRecord.setOptBrief(optBrief);
                     optRecord.setOptDescription(optDesc);
                     optRecord.setReqMethodName(reqAction);
+                    optRecord.setUserId(userId);
                     optRecord.setReqParams(reqParams);
                     optRecord.setReqUrl(reqUrl);
                     optRecord.setSceneNo(sceneNo);

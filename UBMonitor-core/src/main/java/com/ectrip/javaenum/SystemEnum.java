@@ -15,6 +15,15 @@ public enum SystemEnum {
         this.name = name;
     }
 
+    public static SystemEnum forCode(String code) {
+        for(SystemEnum se:SystemEnum.values()) {
+            if(se.getCode().equals(code)) {
+                return se;
+            }
+        }
+        return null;
+    }
+
     public String getCode() {
         return code;
     }
