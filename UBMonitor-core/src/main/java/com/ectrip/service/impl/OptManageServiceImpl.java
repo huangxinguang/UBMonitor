@@ -1,5 +1,7 @@
 package com.ectrip.service.impl;
 
+import com.ectrip.common.utils.DateUtil;
+import com.ectrip.common.utils.MyUserAgentUtil;
 import com.ectrip.dao.OptEnvironmentDAO;
 import com.ectrip.dao.OptRecordAndEnvDAO;
 import com.ectrip.dao.OptRecordDAO;
@@ -8,8 +10,6 @@ import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
 import com.ectrip.mq.service.OptProducerService;
 import com.ectrip.service.OptManageService;
-import com.ectrip.utils.DateUtil;
-import com.ectrip.utils.MyUserAgentUtil;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 import eu.bitwalker.useragentutils.*;

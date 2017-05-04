@@ -1,14 +1,10 @@
 package com.ectrip;
 
-import com.ectrip.utils.MyUserAgentUtil;
-import com.ectrip.utils.WebUtil;
+import com.ectrip.common.utils.MyUserAgentUtil;
 import eu.bitwalker.useragentutils.UserAgent;
 import eu.bitwalker.useragentutils.Version;
 import org.junit.Assert;
 import org.junit.Test;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by huangxinguang on 2017/4/20 下午3:58.

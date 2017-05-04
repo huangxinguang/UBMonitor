@@ -1,4 +1,4 @@
-package com.ectrip.utils;
+package com.ectrip.common.utils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;

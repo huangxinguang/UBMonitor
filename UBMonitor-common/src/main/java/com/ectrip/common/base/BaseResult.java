@@ -1,4 +1,4 @@
-package com.ectrip.common;
+package com.ectrip.common.base;
 
 /**
  * 统一返回结果类

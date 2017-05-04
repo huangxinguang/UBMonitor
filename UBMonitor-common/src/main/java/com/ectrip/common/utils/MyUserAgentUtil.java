@@ -1,4 +1,4 @@
-package com.ectrip.utils;
+package com.ectrip.common.utils;
 
 /**
  * Created by huangxinguang on 2017/4/21 上午9:51.

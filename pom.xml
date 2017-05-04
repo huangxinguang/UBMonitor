@@ -23,7 +23,8 @@
   <modules>
     <module>UBMonitor-web</module>
     <module>UBMonitor-core</module>
-      <module>UBMonitor-search</module>
+    <module>UBMonitor-search</module>
+    <module>UBMonitor-common</module>
   </modules>
 
   <dependencies>
