@@ -2,15 +2,18 @@
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE HTML>
 <html>
 <head>
     <title>用户行为监控系统</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <link href="assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/bui-min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/css/main-min.css" rel="stylesheet" type="text/css" />
+    <link href="${basePath}/assets/css/dpl-min.css" rel="stylesheet" type="text/css" />
+    <link href="${basePath}/assets/css/bui-min.css" rel="stylesheet" type="text/css" />
+    <link href="${basePath}/assets/css/main-min.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 
@@ -21,7 +24,7 @@
     </div>
     <div class="dl-log">
         欢迎您，<span class="dl-log-user">root</span>
-        <a href="/chinapost/index.php?m=Public&a=logout" title="退出系统" class="dl-log-quit">[退出]</a>
+        <a href="${basePath}/chinapost/index.php?m=Public&a=logout" title="退出系统" class="dl-log-quit">[退出]</a>
     </div>
 </div>
 
@@ -39,10 +42,10 @@
 </div>
 
 
-<script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="assets/js/bui-min.js"></script>
-<script type="text/javascript" src="assets/js/common/main-min.js"></script>
-<script type="text/javascript" src="assets/js/config-min.js"></script>
+<script type="text/javascript" src="${basePath}/assets/js/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="${basePath}/assets/js/bui-min.js"></script>
+<script type="text/javascript" src="${basePath}/assets/js/common/main-min.js"></script>
+<script type="text/javascript" src="${basePath}/assets/js/config-min.js"></script>
 
 <%--左侧菜单--%>
 <script>
