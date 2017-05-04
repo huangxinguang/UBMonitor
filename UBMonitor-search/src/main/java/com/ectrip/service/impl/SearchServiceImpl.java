@@ -100,8 +100,8 @@ public class SearchServiceImpl implements SearchService {
                 optRecordAndEnvVO.setComputerName((String)result.getFieldValue("computerName"));
                 optRecordAndEnvVO.setOs((String)result.getFieldValue("os"));
                 optRecordAndEnvVO.setOsVersion((String)result.getFieldValue("osVersion"));
-                optRecordAndEnvVO.setFont((String)result.getFieldValue("resolution"));
-                optRecordAndEnvVO.setTerminalName((String)result.getFieldValue("font"));
+                optRecordAndEnvVO.setResolution((String)result.getFieldValue("resolution"));
+                optRecordAndEnvVO.setFont((String)result.getFieldValue("font"));
                 optRecordAndEnvVO.setFontSize((String)result.getFieldValue("fontSize"));
                 optRecordAndEnvVO.setBrowser((String)result.getFieldValue("browser"));
                 optRecordAndEnvVO.setBrowserVersion((String)result.getFieldValue("browserVersion"));
