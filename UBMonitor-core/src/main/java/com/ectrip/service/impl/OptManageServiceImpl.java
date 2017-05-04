@@ -6,6 +6,7 @@ import com.ectrip.dao.OptRecordDAO;
 import com.ectrip.javaenum.ChannelEnum;
 import com.ectrip.model.OptEnvironment;
 import com.ectrip.model.OptRecord;
+import com.ectrip.mq.service.OptProducerService;
 import com.ectrip.service.OptManageService;
 import com.ectrip.utils.DateUtil;
 import com.ectrip.utils.MyUserAgentUtil;
@@ -43,6 +44,10 @@ public class OptManageServiceImpl implements OptManageService {
 
     @Autowired
     private ThreadPoolTaskExecutor threadPoolTaskExecutor;
+
+    @Autowired
+    private OptProducerService optProducerService;
+
 
 
     public void saveOptAndEnv(final HttpServletRequest request,final String remoteUser,final String remoteIp,final String sessionId,final String userAgent, final String reqUrl,
@@ -102,6 +107,8 @@ public class OptManageServiceImpl implements OptManageService {
 
                     logger.info("操作数据:{}",optRecord.toString());
                     optRecordDAO.save(optRecord);
+                    //发送消息
+                    optProducerService.sendMessage(optRecord.getId()+"");
 
                 } catch (Exception e) {
                     logger.info(" 保存记录异常,操作环境：{}, 操作数据:{}",env.toString(),optRecord.toString(),e);

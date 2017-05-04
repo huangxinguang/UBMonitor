@@ -1,11 +1,9 @@
 package com.ectrip.controller;
 
 import com.ectrip.common.BaseResult;
-import com.ectrip.common.SearchResult;
+import com.ectrip.mq.service.OptProducerService;
 import com.ectrip.service.OptManageService;
 import com.ectrip.service.SearchService;
-import com.ectrip.vo.OptRecordAndEnvVO;
-import com.github.pagehelper.PageInfo;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
@@ -17,8 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by huangxinguang on 2017/4/20 上午10:08.
@@ -34,6 +30,9 @@ public class OptRecordController extends BaseController {
 
     @Autowired
     private SearchService searchService;
+
+    @Autowired
+    private OptProducerService optProducerService;
 
     @ApiOperation(value = "插入操作记录",notes = "")
     @ApiImplicitParams({
@@ -116,8 +115,7 @@ public class OptRecordController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "/findOptRecordList",method = RequestMethod.GET)
     public Object findOptRecordList(Integer offset,Integer limit,String userId,String sysCode,String channelCode,String channelName,String terminalName,String sessionId,String reqUrl,String sceneNo) {
-        SearchResult searchResult = searchService.searchOptRecordList(offset,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,reqUrl,sceneNo);
-        return searchResult;
+        return searchService.searchOptRecordList(offset,limit,userId,sysCode,channelCode,channelName,terminalName,sessionId,reqUrl,sceneNo);
     }
 
 }

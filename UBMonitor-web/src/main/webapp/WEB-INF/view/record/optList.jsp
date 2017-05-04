@@ -54,8 +54,8 @@
         <label for="channelCode">渠道名称：</label>
         <select name="channelCode" id="channelCode" class="form-control">
            <option value="">所有</option>
-           <option value="502">九寨沟</option>
-           <option value="520">青都</option>
+           <option value="602">九网</option>
+           <option value="502">青都</option>
         </select><br><br>
 
         <%--用户ID：--%>
@@ -254,7 +254,8 @@
                         name="设备ID";break;
                 }
 
-                html += "<p class='text-info'>" + name + ":" + val +"</p>"
+                html += "<span class='text-info'>" + name + ":" + val +"</span> "
+                html += "<br>";
             });
             return html;
         }

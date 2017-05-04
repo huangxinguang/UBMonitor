@@ -1,6 +1,5 @@
 package com.ectrip.service;
 
-import com.ectrip.model.OptRecord;
 import com.ectrip.vo.OptRecordAndEnvVO;
 import com.github.pagehelper.PageInfo;
 

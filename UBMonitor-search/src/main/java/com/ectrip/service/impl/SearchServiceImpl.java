@@ -63,6 +63,8 @@ public class SearchServiceImpl implements SearchService {
             solrParams.add("fq", "sceneNo:*"+sceneNo+"*");
         }
 
+        solrParams.add("sort","optTime desc");
+
 
         List<OptRecordAndEnvVO> optRecordAndEnvVOList = new ArrayList<OptRecordAndEnvVO>();
         SearchResult searchResult = new SearchResult();
@@ -76,7 +78,6 @@ public class SearchServiceImpl implements SearchService {
             for (SolrDocument result : results) {
                 optRecordAndEnvVO = new OptRecordAndEnvVO();
                 optRecordAndEnvVO.setId(Integer.valueOf(result.getFieldValue("id").toString()));
-                optRecordAndEnvVO.setChannelCode((String)result.getFieldValue("channelCode"));
                 optRecordAndEnvVO.setSysCode((String)result.getFieldValue("sysCode"));
                 optRecordAndEnvVO.setChannelCode((String)result.getFieldValue("channelCode"));
                 optRecordAndEnvVO.setChannelName((String)result.getFieldValue("channelName"));
