@@ -108,7 +108,7 @@
 	</select>
 
 	<!-- 查询单个详情-->
-	<select id="findOptDetail" resultMap="baseResultMap" parameterType="int">
+	<select id="getOptDetail" resultMap="baseResultMap">
 		SELECT optr.ID,
 		SYS_CODE,
 		CHANNEL_CODE,
@@ -147,7 +147,8 @@
 		IS_EMULATOR,
 		DEVICE_ID
 		FROM OPT_RECORD optr,OPT_ENVIRONMENT opte
-		WHERE opte.ID=#{optId}
+		WHERE optr.env_id = opte.id and
+		optr.ID=#{optId}
 	</select>
 
 

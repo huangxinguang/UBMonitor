@@ -32,6 +32,6 @@ public interface OptRecordAndEnvDAO {
      * @param optId
      * @return
      */
-    OptRecordAndEnvVO getOptDetail(Integer optId);
+    OptRecordAndEnvVO getOptDetail(@Param("optId") Integer optId);
 }
 
