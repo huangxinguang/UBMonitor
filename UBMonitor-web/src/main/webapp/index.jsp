@@ -47,8 +47,8 @@
 <%--左侧菜单--%>
 <script>
     BUI.use('common/main',function(){
-        var config = [{id:'1',menu:[{text:'系统管理',
-                                        items:[{id:'12',text:'监控记录  ',href:'optManage/optRecordPage'},{id:'11',text:'sql监控  ',href:'druid/index.html'}]
+        var config = [{id:'manage',menu:[{text:'系统管理',
+                                        items:[{id:'monitor',text:'监控记录  ',href:'optManage/optRecordPage'},{id:'sql-monitor',text:'sql监控  ',href:'druid/index.html'}]
         }]}];
         new PageUtil.MainPage({
             modulesConfig : config
@@ -58,7 +58,8 @@
 
 
 <%--中间内容展示--%>
-<div style="text-align:center;"></div>
+<div style="text-align:center;">
+</div>
 
 
 </body>
