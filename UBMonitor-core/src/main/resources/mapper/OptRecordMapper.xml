@@ -65,7 +65,7 @@
 
 
 	<!-- 新增-->
-	<insert id="save">
+	<insert id="save" useGeneratedKeys="true" keyProperty="id">
 		insert into <include refid="tableName"></include>(
 			<include refid="Field"></include>
 		) values (
