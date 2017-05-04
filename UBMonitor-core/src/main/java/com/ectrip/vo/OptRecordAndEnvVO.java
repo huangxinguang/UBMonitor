@@ -339,4 +339,47 @@ public class OptRecordAndEnvVO {
     public void setDeviceId(String deviceId) {
         this.deviceId = deviceId;
     }
+
+    @Override
+    public String toString() {
+        return "OptRecordAndEnvVO{" +
+                "id=" + id +
+                ", sysCode='" + sysCode + '\'' +
+                ", channelCode='" + channelCode + '\'' +
+                ", channelName='" + channelName + '\'' +
+                ", terminalName='" + terminalName + '\'' +
+                ", sessionId='" + sessionId + '\'' +
+                ", reqParams='" + reqParams + '\'' +
+                ", reqUrl='" + reqUrl + '\'' +
+                ", userId='" + userId + '\'' +
+                ", sceneNo='" + sceneNo + '\'' +
+                ", reqMethodName='" + reqMethodName + '\'' +
+                ", optBrief='" + optBrief + '\'' +
+                ", optTime='" + optTime + '\'' +
+                ", optDescription='" + optDescription + '\'' +
+                ", ip='" + ip + '\'' +
+                ", clientIp='" + clientIp + '\'' +
+                ", mac='" + mac + '\'' +
+                ", imei='" + imei + '\'' +
+                ", operators='" + operators + '\'' +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", phoneModel='" + phoneModel + '\'' +
+                ", computerName='" + computerName + '\'' +
+                ", os='" + os + '\'' +
+                ", osVersion='" + osVersion + '\'' +
+                ", resolution='" + resolution + '\'' +
+                ", font='" + font + '\'' +
+                ", fontSize='" + fontSize + '\'' +
+                ", browser='" + browser + '\'' +
+                ", browserVersion='" + browserVersion + '\'' +
+                ", appName='" + appName + '\'' +
+                ", appType='" + appType + '\'' +
+                ", appVersion='" + appVersion + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", internetType='" + internetType + '\'' +
+                ", isEmulator='" + isEmulator + '\'' +
+                ", deviceId='" + deviceId + '\'' +
+                '}';
+    }
 }

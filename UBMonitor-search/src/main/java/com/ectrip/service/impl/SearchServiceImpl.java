@@ -44,7 +44,7 @@ public class SearchServiceImpl implements SearchService {
         if(!StringUtils.isEmpty(userId)) {
            solrParams.add("fq", "userId:*"+userId+"*");
         }
-        if(!StringUtils.isEmpty(userId)) {
+        if(!StringUtils.isEmpty(channelCode)) {
             solrParams.add("fq", "channelCode:"+channelCode);
         }
         if(!StringUtils.isEmpty(channelName)) {
