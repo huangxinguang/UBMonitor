@@ -32,8 +32,6 @@ public class OptRecordController extends BaseController {
     @Autowired
     private SearchService searchService;
 
-    @Autowired
-    private OptProducerService optProducerService;
 
     @ApiOperation(value = "插入操作记录",notes = "")
     @ApiImplicitParams({
